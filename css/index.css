@@ -5673,3 +5673,10 @@ blockquote.pullquote.right {
   padding-left: 24px;
   line-height: 1.7;
 }
+#local-search .search-dialog .local-search-hit-item .search-result-title {
+  font-weight: 600;
+}
+#local-search .search-dialog .local-search-hit-item .search-result {
+  margin: 0 0 8px;
+  word-break: break-word;
+}

@@ -1,79 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>404</title>
-    <meta name="keywords" content="Hexo,Ayer,404,Design" />
-    <meta name="description" content="hexo theme ayer page 404." />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <style>
-      html,
-      figure {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-      }
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>页面没有找到 | 好困啊</title><meta name="author" content="kill zou"><meta name="copyright" content="kill zou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="困了不睡睡，熬成仙">
+<meta property="og:type" content="website">
+<meta property="og:title" content="好困啊">
+<meta property="og:url" content="https://killzou.gitee.io/killzou.gitee.io/404.html">
+<meta property="og:site_name" content="好困啊">
+<meta property="og:description" content="困了不睡睡，熬成仙">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://p1.music.126.net/bKM7itpIqu_G2cA4BwdHmw==/109951168552935844.jpg">
+<meta property="article:author" content="kill zou">
+<meta property="article:tag" content="困 好困 真困">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://p1.music.126.net/bKM7itpIqu_G2cA4BwdHmw==/109951168552935844.jpg"><link rel="shortcut icon" href="/killzou.gitee.io/img/favicon.png"><link rel="canonical" href="https://killzou.gitee.io/killzou.gitee.io/404.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/killzou.gitee.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/killzou.gitee.io/',
+  algolia: undefined,
+  localSearch: {"path":"/killzou.gitee.io/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: kill zou","link":"链接: ","source":"来源: 好困啊","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '页面没有找到',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-04-19 11:06:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-      body {
-        margin: 20px;
-        overflow: hidden;
-      }
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-      h1,
-      h3 {
-        width: 100%;
-        text-align: center;
-        color: #403e3e;
-      }
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
-      h3 a {
-        color: #0681d0;
-      }
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-      .forrestgump img {
-        width: 52rem;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        border-radius: 5%;
-        opacity: 0.8;
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
       }
-
-      @media screen and (max-width: 768px) {
-        .forrestgump img {
-          width: 100%;
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
         }
       }
-    </style>
-  </head>
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
-  <body>
-    <div class="notfound">
-      <a class="notfound-link" href="/">
-        <img
-          width="40"
-          src="data:image/png;base64,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"
-        />
-      </a>
-      <figure class="forrestgump">
-        <figcaption>
-          <h1>404<br />Not Found!</h1>
-          <h3>
-            Please check it, Maybe you should read
-            <a href="https://hexo.io/docs/">Hexo</a> and
-            <a href="https://github.com/Shen-Yu/hexo-theme-ayer">Ayer</a> Docs
-            carefully.
-          </h3>
-          <h3>
-            亲，获取不到该路径的页面呢，请检查一下哦，可能你还需要仔细阅读
-            <a href="https://hexo.io/docs/">Hexo</a> 和
-            <a href="https://shen-yu.gitee.io/2019/ayer/">Ayer</a> 的说明文档~
-          </h3>
-        </figcaption>
-        <img src="https://tvax4.sinaimg.cn/large/9156bd04ly1gzofhomcm4j20zk0p5jrw.jpg" />
-      </figure>
-    </div>
-  </body>
-</html>
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 8 || hour >= 22
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://p1.music.126.net/bKM7itpIqu_G2cA4BwdHmw==/109951168552935844.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/killzou.gitee.io/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/killzou.gitee.io/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/killzou.gitee.io/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/killzou.gitee.io/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/killzou.gitee.io/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="error404" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/killzou.gitee.io/" title="好困啊"><span class="site-name">好困啊</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/killzou.gitee.io/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/killzou.gitee.io/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/killzou.gitee.io/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><div id="error-wrap"><div class="error-content"><div class="error-img"><img src="https://i.loli.net/2020/05/19/aKOcLiyPl2JQdFD.png" alt="Page not found"></div><div class="error-info"><h1 class="error_title">404</h1><div class="error_subtitle">Page Not Found</div></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/killzou.gitee.io/js/utils.js"></script><script src="/killzou.gitee.io/js/main.js"></script><script src="/killzou.gitee.io/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/killzou.gitee.io/js/search/local-search.js"></script></div></div></body></html>

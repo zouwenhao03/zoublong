@@ -5612,3 +5612,14 @@ blockquote.pullquote.right {
   background: var(--search-bg);
   --search-height: 100vh;
 }
+.search-dialog .search-nav {
+  margin: 0 0 14px;
+  color: #49b1f5;
+  font-size: 1.4em;
+  line-height: 1;
+}
+#local-search .search-dialog .local-search-box {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}

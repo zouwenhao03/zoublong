@@ -126,3 +126,7 @@ svg.icon {
   fill: currentColor;
   overflow: hidden;
 }
+#search-button{
+  position: relative;
+  left: -28em;
+}

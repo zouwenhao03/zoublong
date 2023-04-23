@@ -41,7 +41,7 @@
 #aside-content > .card-widget.card-info,
 #aside-content > .card-widget.card-announcement {
   /* background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%); */
-  background: rgb(255,255,255,0.5);
+  background: rgb(255, 255, 255, 0.5);
   box-shadow: 0 0 5px rgb(66, 68, 68);
   position: relative;
   background-size: 400% 400%;
@@ -56,7 +56,7 @@
 #aside-content > .sticky_layout .card-widget.card-archives,
 #aside-content > .sticky_layout .card-widget.card-webinfo {
   /* background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%); */
-  background: rgb(255,255,255,0.5);
+  background: rgb(255, 255, 255, 0.5);
   box-shadow: 0 0 5px rgb(66, 68, 68);
   position: relative;
   background-size: 400% 400%;
@@ -99,8 +99,9 @@
 }
 
 /* 黑夜模式适配 */
-[data-theme="dark"] #aside-content > .card-widget.card-info, [data-theme="dark"]#aside-content > .card-widget.card-announcement {
-  background: rgb(255,255,255,0.5);
+[data-theme="dark"] #aside-content > .card-widget.card-info,
+[data-theme="dark"]#aside-content > .card-widget.card-announcement {
+  background: rgb(255, 255, 255, 0.5);
 }
 
 /* 个人信息Follow me按钮 */
@@ -113,11 +114,11 @@
   background-size: cover;
 }
 
-#recent-posts > .recent-post-item{
-  background: radial-gradient(#fff,transparent);
+#recent-posts > .recent-post-item {
+  background: radial-gradient(#fff, transparent);
 }
-.layout > div:first-child:not(.recent-posts){
-  background: radial-gradient(#fff,transparent);
+.layout > div:first-child:not(.recent-posts) {
+  background: radial-gradient(#fff, transparent);
 }
 svg.icon {
   width: 1.28em;
@@ -126,7 +127,21 @@ svg.icon {
   fill: currentColor;
   overflow: hidden;
 }
-#search-button{
+#search-button {
   position: relative;
   left: -28em;
+}
+/* 音乐页面 */
+#article-container .aplayer {
+  border-radius: 3%;
+  background: rgba(255, 255, 255, 0.3);
+}
+.aplayer .aplayer-list ol li.aplayer-list-light {
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%) !important;
+}
+..aplayer .aplayer-list ol li{
+  color: #050505;
+}
+.aplayer .aplayer-list ol li:hover {
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%) !important;
 }

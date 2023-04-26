@@ -54,7 +54,8 @@
 #aside-content > .sticky_layout .card-widget.card-clock,
 #aside-content > .sticky_layout .card-widget.card-tags,
 #aside-content > .sticky_layout .card-widget.card-archives,
-#aside-content > .sticky_layout .card-widget.card-webinfo {
+#aside-content > .sticky_layout .card-widget.card-webinfo ,
+#aside-content > .sticky_layout .card-widget.animate__zoomIn {
   /* background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%); */
   background: rgb(255, 255, 255, 0.5);
   box-shadow: 0 0 5px rgb(66, 68, 68);
@@ -115,11 +116,12 @@
 }
 
 #recent-posts > .recent-post-item {
-  background: radial-gradient(#fff, transparent);
+  background: radial-gradient(#fff, #858585d1);
 }
 .layout > div:first-child:not(.recent-posts) {
-  background: radial-gradient(#fff, transparent);
+  background: radial-gradient(#fff, #858585d1);
 }
+
 svg.icon {
   width: 1.28em;
   height: 1.28em;
@@ -139,7 +141,7 @@ svg.icon {
 .aplayer .aplayer-list ol li.aplayer-list-light {
   background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%) !important;
 }
-..aplayer .aplayer-list ol li{
+.aplayer .aplayer-list ol li{
   color: #050505;
 }
 .aplayer .aplayer-list ol li:hover {

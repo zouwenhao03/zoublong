@@ -4,26 +4,50 @@
   
     
     <entry>
-      <title></title>
-      <link href="/zoublong/post/0.html"/>
-      <url>/zoublong/post/0.html</url>
+      <title>js基础-2</title>
+      <link href="/zoublong/post/e36b6b5c.html"/>
+      <url>/zoublong/post/e36b6b5c.html</url>
       
         <content type="html"><![CDATA[<h4 id="16-对AJAX的理解，实现一个AJAX请求"><a href="#16-对AJAX的理解，实现一个AJAX请求" class="headerlink" title="16.对AJAX的理解，实现一个AJAX请求"></a>16.对AJAX的理解，实现一个AJAX请求</h4><p>AJAX（Asynchronous JavaScript and XML）指的是一种通过 JavaScript 和 XML 进行异步通信的技术，它可<strong>以在不刷新整个页面的情况下向服务器发送请求，</strong>并获取到服务器返回的数据。它的优点是能够提高页面的用户体验，避免了整个页面的重新加载，只刷新部分页面。</p><p>在 JavaScript 中实现 AJAX 可以通过 XMLHttpRequest 对象来完成。下面是一个简单的 AJAX 请求示例：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line"></span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.<span class="property">readyState</span> === <span class="title class_">XMLHttpRequest</span>.<span class="property">DONE</span> &amp;&amp; xhr.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(xhr.<span class="property">responseText</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;https://jsonplaceholder.typicode.com/todos/1&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br></pre></td></tr></table></figure><p>首先创建一个 XMLHttpRequest 对象，然后监听其 onreadystatechange 事件，当 readyState 值为 4（即请求完成）并且 status 值为 200 时，表示请求成功，此时可以获取服务器返回的数据。</p><p>通过 <code>open()</code> 方法设置请求的类型（GET 或 POST）、URL 和异步标志（true 表示异步，false 表示同步），然后调用 <code>send()</code> 方法发送请求。在请求过程中可以通过 <code>setRequestHeader()</code> 方法设置请求头。</p><p>除了使用原生的 XMLHttpRequest 对象，还可以使用基于 Promise 的 fetch API、jQuery 中的 AJAX 方法等来实现 AJAX 请求。</p><h4 id="17-ES6模块与CommonJS模块有什么异同？"><a href="#17-ES6模块与CommonJS模块有什么异同？" class="headerlink" title="17.ES6模块与CommonJS模块有什么异同？"></a>17.ES6模块与CommonJS模块有什么异同？</h4><p>ES6模块与CommonJS模块有以下异同点：</p><p>异同点：</p><ol><li>导入和导出方式不同：ES6模块使用 <code>import</code> 和 <code>export</code> 语句进行导入和导出，而CommonJS模块使用 <code>require()</code> 导入，<code>module.exports</code> 或 <code>exports</code> 导出；</li><li>加载方式不同：<strong>ES6模块是静态的，编译时就能确定模块的依赖关系</strong>，使用 <code>import</code> 加载模块。而CommonJS模块是动态的，运行时才能确定依赖关系，使用 <code>require()</code> 加载模块；</li><li>ES6模块导入的<strong>变量是只读的，无法修改变量的值</strong>，而CommonJS模块导入的变量是可以修改的；</li><li>CommonJS模块是单个值导出，ES6模块可以导出多个变量或对象。</li></ol><p>ES6模块的优点：</p><ol><li>静态加载，在编译时就能确定模块的依赖关系，有助于编译器进行优化；</li><li>支持循环引用；</li><li>模块默认采用严格模式。</li></ol><p>CommonJS模块的优点：</p><ol><li>动态加载，支持在运行时动态加载模块，更适合在服务器端使用；</li><li>代码简单，语法简单，易于使用。</li></ol><p>下面是一个ES6模块与CommonJS模块的示例：</p><p>ES6模块：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模块文件 math.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">x, y</span>) =&gt; x + y;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">sub</span> = (<span class="params">x, y</span>) =&gt; x - y;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另一个文件 main.js 导入 math.js 模块</span></span><br><span class="line"><span class="keyword">import</span> &#123; add, sub &#125; <span class="keyword">from</span> <span class="string">&#x27;./math.js&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 输出 5</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">sub</span>(<span class="number">5</span>, <span class="number">1</span>)); <span class="comment">// 输出 4</span></span><br></pre></td></tr></table></figure><p>CommonJS模块：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模块文件 math.js</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">add</span> = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x + y;</span><br><span class="line"><span class="built_in">exports</span>.<span class="property">sub</span> = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x - y;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 另一个文件 main.js 导入 math.js 模块</span></span><br><span class="line"><span class="keyword">const</span> math = <span class="built_in">require</span>(<span class="string">&#x27;./math.js&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(math.<span class="title function_">add</span>(<span class="number">2</span>, <span class="number">3</span>)); <span class="comment">// 输出 5</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(math.<span class="title function_">sub</span>(<span class="number">5</span>, <span class="number">1</span>)); <span class="comment">// 输出 4</span></span><br></pre></td></tr></table></figure><p>use strict是什么意思 ? 使用它区别是什么？</p><p>“use strict” 是 JavaScript 的严格模式，它是 ECMAScript 5 引入的一项新特性。使用它的目的是让 JavaScript 引擎在更严格的条件下运行代码，从而避免出现一些潜在的问题，提高代码的安全性和效率。</p><p>“use strict” 的使用有以下区别：</p><ol><li><p>严格模式下禁止使用未声明的变量，否则会抛出错误。</p></li><li><p>严格模式下禁止删除变量、函数或参数。</p></li><li><p>严格模式下禁止变量重名，否则会抛出错误。</p></li><li><p>严格模式下禁止使用八进制字面量，否则会抛出错误。</p></li><li><p>严格模式下禁止使用 eval() 函数创建变量或函数，否则会抛出错误。</p></li><li><p>严格模式下禁止使用 with 语句，否则会抛出错误。</p></li><li><p>严格模式下对函数的 arguments 对象的访问更加严格，它不能被重新赋值，也不能用 delete 删除其中的某个参数。</p></li><li><p>严格模式下 this 的值为 undefined，而不是全局对象。</p></li></ol><p>在 ES6 模块中，严格模式是默认启用的，所以无需在每个模块中添加 “use strict”。而在 CommonJS 模块中，需要手动添加 “use strict” 来启用严格模式。</p>]]></content>
       
       
+      <categories>
+          
+          <category> web前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js web 前端 面试题 </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title></title>
-      <link href="/zoublong/post/0.html"/>
-      <url>/zoublong/post/0.html</url>
+      <title>js输出题</title>
+      <link href="/zoublong/post/e36b6b5c.html"/>
+      <url>/zoublong/post/e36b6b5c.html</url>
       
         <content type="html"><![CDATA[<ol><li></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="title class_">Boolean</span>( <span class="literal">false</span> );</span><br><span class="line"><span class="keyword">if</span> (!a) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="string">&quot;Oops&quot;</span> ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> web前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js web 前端 面试题 </tag>
+            
+        </tags>
       
     </entry>
     

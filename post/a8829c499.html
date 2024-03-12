@@ -1,0 +1,1157 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>总结 | 好困啊</title><meta name="author" content="kill zou"><meta name="copyright" content="kill zou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="面试  debounce throttle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="总结">
+<meta property="og:url" content="http://example.com/post/a8829c499.html">
+<meta property="og:site_name" content="好困啊">
+<meta property="og:description" content="面试  debounce throttle">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d">
+<meta property="article:published_time" content="2024-03-12T05:31:55.690Z">
+<meta property="article:modified_time" content="2024-03-12T05:40:57.816Z">
+<meta property="article:author" content="kill zou">
+<meta property="article:tag" content="css js html vue react">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d"><link rel="shortcut icon" href="/zoublong/img/ball.png"><link rel="canonical" href="http://example.com/post/a8829c499.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/zoublong/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/zoublong/',
+  algolia: undefined,
+  localSearch: {"path":"/zoublong/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: kill zou","link":"链接: ","source":"来源: 好困啊","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-03-12 13:40:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 8 || hour >= 22
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"><link rel="stylesheet" href="/zoublong/config/css/r1.css""><link rel="stylesheet" href="/zoublong/config/css/universe.css"><link rel="stylesheet" href="/zoublong/config/css/fap.css"><link rel="stylesheet" href="/zoublong/config/css/scroll.css"><link rel="stylesheet" href="/zoublong/config/css/snow.css"><link rel="stylesheet" href="/zoublong/config/css/curr.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><console class="log" theme.preloader.source="theme.preloader.source" 555="555"></console><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/zoublong/config/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://p1.music.126.net/bKM7itpIqu_G2cA4BwdHmw==/109951168552935844.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/zoublong/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/zoublong/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/zoublong/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/"><i class="fa-fw icon-mihoutao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mihoutao"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/archives/"><i class="fa-fw icon-huolongguo"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-huolongguo"></use></svg><span> 档案</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/tags/"><i class="fa-fw icon-shanzhu"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shanzhu"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/categories/"><i class="fa-fw icon-caomei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-caomei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-a-li_huaban1"></use></svg><span> 逛逛</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-baixiangguo">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/Gallery/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-niuyouguo">                   </use></svg><span> 壁纸</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/link/"><i class="fa-fw icon-yingtao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yingtao"></use></svg><span> 链接</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-juzi"></use></svg><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/comments"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-ningmeng">                   </use></svg><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/artitalk"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xigua">                   </use></svg><span> 哔哔</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d')"><nav id="nav"><span id="blog-info"><a href="/zoublong/" title="好困啊"><span class="site-name">好困啊</span></a></span><div id="menus"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:1.28em;width:1.28em;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-sousuo"><span> 搜索</span></use></svg></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/"><i class="fa-fw icon-mihoutao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mihoutao"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/archives/"><i class="fa-fw icon-huolongguo"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-huolongguo"></use></svg><span> 档案</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/tags/"><i class="fa-fw icon-shanzhu"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shanzhu"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/categories/"><i class="fa-fw icon-caomei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-caomei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-a-li_huaban1"></use></svg><span> 逛逛</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-baixiangguo">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/Gallery/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-niuyouguo">                   </use></svg><span> 壁纸</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/link/"><i class="fa-fw icon-yingtao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yingtao"></use></svg><span> 链接</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-juzi"></use></svg><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/comments"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-ningmeng">                   </use></svg><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/artitalk"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xigua">                   </use></svg><span> 哔哔</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-12T05:40:57.816Z" title="更新于 2024-03-12 13:40:57">2024-03-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/zoublong/categories/web%E5%89%8D%E7%AB%AF/">web前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="1-0-1-0-2！-x3D-0-3"><a href="#1-0-1-0-2！-x3D-0-3" class="headerlink" title="1.0.1+0.2！&#x3D;0.3"></a>1.0.1+0.2！&#x3D;0.3</h4><p>因为浮点数精度丢失，0.1在计算机内部转为二进制时转成0.10001无限循环数，所以出现了上述问题。可以使用toFix()解决，或者其他js库。也可以使用整书计算，再转为小数</p>
+<p>2.vue中父组件如何调用子组件的方法，兄弟组件呢</p>
+<p>使用ref调用,子组件定义方法，子组件添加ref属性，父组件调用</p>
+<p>provide&#x2F;inject</p>
+<p>兄弟组件之间使用事件总线，emit on方式 或者使用vuex</p>
+<h4 id="3-ajax四个步骤"><a href="#3-ajax四个步骤" class="headerlink" title="3.ajax四个步骤"></a>3.ajax四个步骤</h4><p>1.创建xmlHttpRequest对象</p>
+<p>2.使用open（）打开服务器连接</p>
+<p>3.设置请求头及发送请求（setRequestHeader,send）</p>
+<p>4.监听状态变化，处理响应（onReadyStateChange , state200,readyState为4）</p>
+<h3 id="4-数组合并方法"><a href="#4-数组合并方法" class="headerlink" title="4.数组合并方法"></a>4.数组合并方法</h3><p>1.contact合并</p>
+<p>2.拓展运算符</p>
+<p>3.reduce</p>
+<p>4.arrary.from</p>
+<h3 id="5面试准备"><a href="#5面试准备" class="headerlink" title="5面试准备"></a>5面试准备</h3><h4 id="1-setTimeout的第三个参数是什么，有什么作用"><a href="#1-setTimeout的第三个参数是什么，有什么作用" class="headerlink" title="1.setTimeout的第三个参数是什么，有什么作用"></a>1.setTimeout的第三个参数是什么，有什么作用</h4><ul>
+<li>第一个参数：这是一个函数或者一段可执行的代码字符串（不推荐使用字符串形式）。</li>
+<li>第二个参数（必需）：延时时间，以毫秒为单位，表示调用第一个参数所代表的函数之前需要等待的时间。</li>
+<li><strong>第三个及后续参数（可选）：这些参数将被作为参数传递给第一个函数，当定时器触发并执行回调函数时，这些值会被依次传入。</strong></li>
+</ul>
+<h4 id="2-Commonjs和es6的模块化两者的区别"><a href="#2-Commonjs和es6的模块化两者的区别" class="headerlink" title="2.Commonjs和es6的模块化两者的区别"></a>2.Commonjs和es6的模块化两者的区别</h4><ol>
+<li><p><strong>语法差异：</strong></p>
+<ul>
+<li><strong>CommonJS：</strong> 使用<code>require</code>关键字引入模块，使用<code>module.exports</code>导出模块。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入模块</span></span><br><span class="line"><span class="keyword">var</span> moduleA = <span class="built_in">require</span>(<span class="string">&#x27;moduleA&#x27;</span>);</span><br><span class="line"><span class="comment">// 导出模块</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = someFunction;</span><br></pre></td></tr></table></figure></li>
+<li><strong>ES6 模块：</strong> 使用<code>import</code>关键字引入模块，使用<code>export</code>关键字导出模块。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 导入模块</span></span><br><span class="line"><span class="keyword">import</span> moduleA <span class="keyword">from</span> <span class="string">&#x27;moduleA&#x27;</span>;</span><br><span class="line"><span class="comment">// 导出模块</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title function_">someFunction</span> = (<span class="params"></span>) =&gt; &#123; <span class="comment">/* code */</span> &#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>运行时特性：</strong></p>
+<ul>
+<li><strong>CommonJS：</strong> <strong>运行时动态加载，模块的加载是同步的</strong>。</li>
+<li><strong>ES6 模块：</strong> <strong>编译时静态加载，模块的加载是异步的</strong>。</li>
+</ul>
+</li>
+<li><p><strong>模块的复制：</strong></p>
+<ul>
+<li><strong>CommonJS：</strong> 模块在运行时被复制，即加载模块的值是被复制过来的。</li>
+<li><strong>ES6 模块：</strong> 模块在编译时被编译器优化，被认为是单一实例，多次导入会指向同一实例。</li>
+</ul>
+</li>
+<li><p><strong>顶级作用域：</strong></p>
+<ul>
+<li><strong>CommonJS：</strong> 模块代码运行在一个函数中，因此模块内的变量不会污染全局作用域。</li>
+<li><strong>ES6 模块：</strong> 模块内的变量默认是局部的，不会污染全局作用域。</li>
+</ul>
+</li>
+<li><p><strong>适用环境：</strong></p>
+<ul>
+<li><strong>CommonJS：</strong> 主要用于服务器端，例如Node.js。</li>
+<li><strong>ES6 模块：</strong> 适用于现代浏览器和一些支持的JavaScript引擎，也可以在Node.js中使用。</li>
+</ul>
+</li>
+</ol>
+<p>总体而言，CommonJS和ES6模块都是用于在JavaScript中实现模块化的方式，但它们在语法、运行时特性和适用环境等方面有一些差异。在现代项目中，ES6模块更为常见，因为它有更好的性能和静态分析特性。</p>
+<h4 id="3-call-apply-bind"><a href="#3-call-apply-bind" class="headerlink" title="3.call,apply,bind"></a>3.call,apply,bind</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//call apply bind 是函数调用的方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span> ()&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">fun</span>()</span><br><span class="line"></span><br><span class="line">fun.<span class="title function_">call</span>()<span class="comment">//未传参数和直接调用是一样的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//改变this指向</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun1</span> ()&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>)</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> o1 = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;jack&#x27;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun1.<span class="title function_">call</span>(o1)<span class="comment">// 原本fun1的this指向window，call调用执行之后this指向o1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cat = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;cat&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="attr">say</span>:<span class="keyword">function</span> (<span class="params">food</span>)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>喜欢吃<span class="subst">$&#123;food&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cat.<span class="title function_">say</span>(<span class="string">&#x27;fish&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;dog&#x27;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cat.<span class="property">say</span>.<span class="title function_">call</span>(dog,<span class="string">&#x27;guu&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cat.<span class="property">say</span>.<span class="title function_">apply</span>(dog,[<span class="string">&#x27;guu&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">//apply的参数是数组和call有所不同</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//bind则是返回一个函数，不直接返回执行结果</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fun3 = cat.<span class="property">say</span>.<span class="title function_">bind</span>(dog,<span class="string">&#x27;guu&#x27;</span>)</span><br><span class="line"></span><br><span class="line"> <span class="title function_">fun3</span>()</span><br></pre></td></tr></table></figure>
+
+<p>实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现call</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myCall</span> = <span class="keyword">function</span> (<span class="params">context</span>) &#123;</span><br><span class="line">  context = context || <span class="variable language_">window</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>, <span class="string">&quot;mycall&quot;</span>); <span class="comment">// 这里的this指向函数</span></span><br><span class="line">  context.<span class="property">fn</span> = <span class="variable language_">this</span>;</span><br><span class="line">  <span class="keyword">let</span> params = [...<span class="variable language_">arguments</span>].<span class="title function_">slice</span>(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">let</span> res = context.<span class="title function_">fn</span>(...params);</span><br><span class="line">  <span class="keyword">delete</span> context.<span class="property">fn</span>;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun4</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;jack&quot;</span> &#125;;</span><br><span class="line">fun4.<span class="title function_">myCall</span>(obj);</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.typeof</strong></p>
+<p>用于检测数据类型，返回字符串</p>
+<p><img src="https://s1.vika.cn/space/2024/02/29/12cc25be30cd478fa3878853827452fb"></p>
+<p>typeof(null) 返回object</p>
+<p>instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上, </p>
+<p>返回值为布尔值，用于指示一个变量是否属于某个对象的实例。</p>
+<h4 id="4-暂时性死区"><a href="#4-暂时性死区" class="headerlink" title="4.暂时性死区"></a>4.暂时性死区</h4><p>在JavaScript中，暂时性死区（Temporal Dead Zone，简称TDZ）<strong>是指在使用<code>let</code>、<code>const</code>或<code>class</code>等声明变量时，在声明之前的一段代码区域。在这段区域内，试图访问该变量会导致ReferenceError，因为变量被视为未定义。</strong></p>
+<p>具体来说：</p>
+<ol>
+<li>当一个作用域块（例如：一个函数或一个 <code>&#123;&#125;</code> 包围的代码块）开始执行时，任何使用<code>let</code>和<code>const</code>声明的变量都会在其声明语句之前进入暂时性死区。</li>
+<li>在这个区域内，即使在变量声明之前有代码尝试访问该变量，也会抛出错误，而不是像<code>var</code>声明那样允许变量提升（hoisting）到作用域顶部并赋予<code>undefined</code>值。</li>
+<li>对于<code>const</code>声明的变量，除了上述限制外，还要求必须在声明时初始化，并且之后不能再更改其值。</li>
+</ol>
+<h4 id="5-块级作用域"><a href="#5-块级作用域" class="headerlink" title="5.块级作用域"></a>5.块级作用域</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125; <span class="comment">//打印出一次‘abc’因为第二次进入循环无法判断abc&lt;3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(i);</span><br><span class="line">&#125;<span class="comment">//报错 i已经被定义了</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-for-in会遍历到原型上，怎么理解"><a href="#6-for-in会遍历到原型上，怎么理解" class="headerlink" title="6.for in会遍历到原型上，怎么理解"></a>6.for in会遍历到原型上，怎么理解</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>)&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">name</span> = <span class="string">&#x27;zansan&#x27;</span></span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line">p1.<span class="property">age</span> = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> p1) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(key)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(p1))</span><br><span class="line"><span class="comment">//这段代码上面会输出 name, age 后面的输出[&#x27;age&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>...<span class="keyword">in</span>循环将会输出 age 和 name。其中，age 是 person 对象自身定义的属性，而 name 是通过原型链从 <span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span> 继承过来的属性。</span><br><span class="line">如果你只想遍历对象自身的属性（不包含原型链上的属性），可以使用 <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">hasOwnProperty</span> 方法来判断或者或者使用 <span class="title class_">Object</span>.<span class="title function_">keys</span>() 方法，它返回的是对象自身（非原型链）</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-js判断数据类型的四种方法"><a href="#7-js判断数据类型的四种方法" class="headerlink" title="7.js判断数据类型的四种方法"></a>7.js判断数据类型的四种方法</h4><p>1.typeof </p>
+<p>2.instanceof</p>
+<p>3.constructor</p>
+<p>在定义一个函数（构造函数）的时候，JS引擎会为其添加prototype原型，原型上有其对应的 </p>
+<p>constructor属性指向该构造函数，从而原型和构造函数之间互相知道对方。当构造函数实例化的 </p>
+<p>时候，会产生对应的实例，其实例可以访问对应原型上的constructor属性，这样该实例就可以了 </p>
+<p>解到通过谁产生了自己，这样就可以在新对象产生之后了解其数据类型。</p>
+<p>虽然该方法可以判断其数据类型，但存在一下两个缺点： </p>
+<ol>
+<li><strong>null 和 undefined 是无效的对象</strong>，因此是不会有 constructor 存在的，这两种类型的数据需要通</li>
+</ol>
+<p>过其他方式来判断。 </p>
+<ol start="2">
+<li>函数的 constructor 是不稳定的，这个主要体现在自定义对象上，当开发者重写 prototype 后，</li>
+</ol>
+<p>原有的 constructor 引用会丢失，constructor 会默认为 Object </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a.<span class="property">constructor</span> === <span class="title class_">Number</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">T1</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">T2</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> t3 = <span class="keyword">new</span> <span class="title function_">T1</span>()</span><br><span class="line">t3.<span class="property">__proto__</span> = <span class="variable constant_">T2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(t3.<span class="property">constructor</span> === <span class="variable constant_">T1</span>)<span class="comment">//false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(t3.<span class="property">constructor</span> === <span class="variable constant_">T1</span>.<span class="property">constructor</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">T1</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">T2</span>(<span class="params"></span>) &#123;&#125;</span><br><span class="line"><span class="variable constant_">T1</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="variable constant_">T2</span></span><br><span class="line"><span class="keyword">let</span> t3 = <span class="keyword">new</span> <span class="title function_">T1</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="8-this指向"><a href="#8-this指向" class="headerlink" title="8.this指向"></a>8.this指向</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//this指向问题</span></span><br><span class="line"><span class="comment">//this指向取决于函数的调用位置</span></span><br><span class="line"><span class="comment">//1.全局环境(</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">//window global(node)</span></span><br><span class="line"><span class="comment">//普通函数严格模式下this为undefined)</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f1</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//对象内部</span></span><br><span class="line"><span class="comment">// 对象内部方法的this指向调用这些方法的对象</span></span><br><span class="line"><span class="comment">// （1）函数的定义位置不影响其this指向，this指向只和调用函数的对象有关；</span></span><br><span class="line"><span class="comment">// （2）多层嵌套的对象，内部方法的this指向离被调用函数最近的对象（window也是对象，其内部</span></span><br><span class="line"><span class="comment">// 对象调用方法的this指向内部对象， 而非window）。</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">add</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + <span class="variable language_">this</span>.<span class="property">b</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> add = obj.<span class="property">add</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="title function_">add</span>())</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>())<span class="comment">//因为此时函数中的this指向window，所以undefined + undefined = NaN</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数的this指向和被创建的新对象绑定</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Test</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">a</span> = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Test</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">a</span> = <span class="number">2</span></span><br><span class="line"><span class="keyword">let</span> t = <span class="keyword">new</span> <span class="title class_">Test</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(t.<span class="property">a</span>)</span><br><span class="line"><span class="comment">//当函数被当做监听事件处理函数时， 其 this 指向触发该事件的元素</span></span><br><span class="line">&lt;button id=<span class="string">&quot;testId&quot;</span>&gt;按钮&lt;/button&gt;</span><br><span class="line"><span class="keyword">const</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;testId&#x27;</span>);</span><br><span class="line">btn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// &lt;button id=&quot;testId&quot;&gt;按钮&lt;/button&gt;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//内联事件中的this指向分两种情况：</span></span><br><span class="line">（<span class="number">1</span>）当代码被内联处理函数调用时，它的<span class="variable language_">this</span>指向监听器所在的<span class="variable constant_">DOM</span>元素</span><br><span class="line">&lt;button onclick=<span class="string">&quot;console.log(this)&quot;</span>&gt;按钮&lt;<span class="regexp">/button&gt; /</span><span class="regexp">/ 输出该DOM节点</span></span><br><span class="line"><span class="regexp">(2)当代码被包括在函数内部执行时，其this指向等同于 函数直接调用的情况，即在非严格模式</span></span><br><span class="line"><span class="regexp">指向全局对象window， 在严格模式指向undefined</span></span><br><span class="line"><span class="regexp">&lt;button onclick=&quot;clickFun()&quot;&gt;按钮&lt;/</span>button&gt;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">clickFun</span>(<span class="params"></span>) &#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// window</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定时器</span></span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">add</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">method</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>);</span><br><span class="line">    &#125;,<span class="number">1000</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj2.<span class="title function_">add</span>();<span class="comment">//obj2</span></span><br><span class="line">obj2.<span class="title function_">method</span>()<span class="comment">//window</span></span><br><span class="line"><span class="comment">// 由于箭头函数不绑定this， 它会捕获其所在（即定义的位置）上下文的this值， 作为自己的this</span></span><br><span class="line"><span class="comment">//值，所以 call() / apply() / bind() 方法对于箭头函数来说只是传入参数，对它的 this 毫无影响。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//call apply bind ， 其函数内部的this值可绑定到 call() &amp; apply() 方法指定的第一个对象上</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//关于call的一道题</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">f3</span>(<span class="params">v1,v2</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">a</span> + <span class="variable language_">this</span>.<span class="property">b</span> + v1 + v2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(f3.<span class="title function_">call</span>(obj,[<span class="number">1</span>,<span class="number">2</span>]))</span><br><span class="line"><span class="comment">//输出为3,1,2undefined</span></span><br><span class="line"><span class="comment">//因为传入的参数为[1,2],undefined 而[1,2]无法直接参与运算，使用toString方法</span></span><br><span class="line"><span class="comment">//console.log(f3.apply(obj,1,2)) 会报错 	CreateListFromArrayLike called on non-object</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="9-关于原型"><a href="#9-关于原型" class="headerlink" title="9.关于原型"></a><strong>9.关于原型</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj3 = &#123;&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3.<span class="property">__proto__</span> === <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>)<span class="comment">//t</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3.<span class="property">__proto__</span>.<span class="property">constructor</span> === <span class="title class_">Object</span>().<span class="property">__proto__</span>.<span class="property">constructor</span>)<span class="comment">//t</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj3.<span class="property">__proto__</span>.<span class="property">__proto__</span>) <span class="comment">// null</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="10-将字符串转驼峰"><a href="#10-将字符串转驼峰" class="headerlink" title="10.将字符串转驼峰"></a>10.将字符串转驼峰</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将hello-world 转为helloWorld</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">toCamelCase</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> str2 = str.<span class="title function_">split</span>(<span class="string">&quot;-&quot;</span>);<span class="comment">//先进行分割成数组</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; str2.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    str2[i] = str2[i][<span class="number">0</span>].<span class="title function_">toUpperCase</span>() + str2[i].<span class="title function_">slice</span>(<span class="number">1</span>);<span class="comment">//循环进行转换</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> str2.<span class="title function_">join</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">toCamelCase2</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> str !== <span class="string">&quot;string&quot;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> arr = str.<span class="title function_">split</span>(<span class="string">&quot;&quot;</span>);<span class="comment">//先切割成数组</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i] === <span class="string">&quot;-&quot;</span>) &#123;</span><br><span class="line">      arr.<span class="title function_">splice</span>(i, <span class="number">1</span>);<span class="comment">//将数组中 - 去除</span></span><br><span class="line">      <span class="keyword">if</span> (i &lt; arr.<span class="property">length</span>) &#123;</span><br><span class="line">        arr[i] = arr[i].<span class="title function_">toLocaleUpperCase</span>();<span class="comment">//转大写，替换</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr.<span class="title function_">join</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">toCamelCase2</span>(<span class="string">&quot;hello-world&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">toCamelCase3</span>(<span class="params">str</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> str.<span class="title function_">replace</span>(<span class="regexp">/-([a-z])/g</span>, <span class="keyword">function</span> (<span class="params">g</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> g[<span class="number">1</span>].<span class="title function_">toUpperCase</span>();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">toCamelCase3</span>(<span class="string">&#x27;hello-world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-cookie和stroge的区别"><a href="#9-cookie和stroge的区别" class="headerlink" title="9.cookie和stroge的区别"></a>9.cookie和stroge的区别</h4><p>在Web开发中，”cookie”和”storage”（通常指”Web Storage”）都是用于在客户端存储数据的工具，但它们有一些关键的区别：</p>
+<ol>
+<li><p><strong>存储机制：</strong></p>
+<ul>
+<li><strong>Cookie：</strong> Cookies 是由服务器发送到浏览器并存储在用户本地的小型文本文件。它们通过HTTP头部在客户端和服务器之间传递。</li>
+<li><strong>Storage：</strong> Web Storage（包括LocalStorage和SessionStorage）是浏览器提供的本地存储机制，使用键值对的方式存储数据。它们在浏览器中通过JavaScript API直接访问。</li>
+</ul>
+</li>
+<li><p><strong>容量：</strong></p>
+<ul>
+<li><strong>Cookie：</strong> Cookies的存储容量有限，通常在几KB到几MB之间，具体取决于浏览器和配置。</li>
+<li><strong>Storage：</strong> Web Storage通常拥有更大的存储容量，通常是5MB或更多，且与Cookies不同，它不会在每个HTTP请求中被发送到服务器，因此可以存储更多数据。</li>
+</ul>
+</li>
+<li><p><strong>数据传输：</strong></p>
+<ul>
+<li><strong>Cookie：</strong> 每次向服务器发送请求时，浏览器会自动附加Cookies。这使得Cookies适合在客户端和服务器之间传递少量数据。</li>
+<li><strong>Storage：</strong> Web Storage数据不会自动发送到服务器。它们仅在客户端存储，适用于本地应用程序数据的保存。</li>
+</ul>
+</li>
+<li><p><strong>过期时间：</strong></p>
+<ul>
+<li><strong>Cookie：</strong> Cookies可以设置过期时间，可以是会话级别（浏览器关闭时过期）或具有固定的过期日期。</li>
+<li><strong>Storage：</strong> Web Storage没有内置的过期机制。数据会一直存在，直到通过JavaScript代码手动删除。</li>
+</ul>
+</li>
+<li><p><strong>访问权限：</strong></p>
+<ul>
+<li><strong>Cookie：</strong> 由于Cookies在每个HTTP请求中都会自动发送，它们可能会受到同源策略（Same-Origin Policy）的限制，只能在与创建它们的域相同的域上访问。</li>
+<li><strong>Storage：</strong> Web Storage也受到同源策略的限制，但在某些情况下，可以更灵活地处理跨域请求。</li>
+</ul>
+</li>
+</ol>
+<p>在选择使用Cookie还是Web Storage时，取决于具体的需求。如果需要在客户端和服务器之间传递数据，或者需要特定的过期时间，那么使用Cookie可能更合适。如果只是需要在客户端本地存储一些数据，而不需要在每个HTTP请求中传递，那么Web Storage可能是更好的选择。</p>
+<h4 id="10-非简单请求的定义"><a href="#10-非简单请求的定义" class="headerlink" title="10.非简单请求的定义"></a>10.非简单请求的定义</h4><p><strong>非简单请求是那种对服务器有特殊要求的请求，</strong>比如请求方法 是PUT或Delete，或者Content-Type字段的类型是application&#x2F;json. </p>
+<p>非简单请求相比于简单请求较复杂，在发起正式请求之前会进行一次<strong>预检请求</strong>，通过预检请求的 </p>
+<p><strong>结果来决定是否进行后续的正式通信</strong>。 </p>
+<ol>
+<li><p>浏览器发起预检请求，该请求的请求方法是options，该请求是用来询问的； </p>
+</li>
+<li><p>服务器收到“预检”请求以后，检查了Origin、Access-Control-Request-Method和Access-Control</p>
+</li>
+</ol>
+<p>Request-Headers字段以后，确认允许跨源请求，就可以做出回应。 </p>
+<ol>
+<li>如果浏览器否定了“预检”请求，会返回一个正常的HTTP回应，但是没有任何CORS相关的头信息字</li>
+</ol>
+<p>段，这时浏览器就会认定服务器不同意预检请求，触发错误； </p>
+<p>   2.如果浏览器通过了“预检”请求，以后每次浏览器正常的CORS请求就跟简单请求一样，会有一个 </p>
+<p>Origin头信息字段，服务器的回应也会有一个Access-Control-Allow-Origin头信息字段；</p>
+<h4 id="11-XMLHttpRequest如何实现同步请求"><a href="#11-XMLHttpRequest如何实现同步请求" class="headerlink" title="11.XMLHttpRequest如何实现同步请求"></a><strong>11.XMLHttpRequest如何实现同步请求</strong></h4><p>若要实现XMLHttpRequest的同步请求，需要在调用<code>open()</code>方法时将第三个参数设为<code>false</code>：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;your-url-here&#x27;</span>, <span class="literal">false</span>); <span class="comment">// 注意这里的第三个参数是false，表示同步请求</span></span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同步请求会阻塞这里，直到请求完成</span></span><br><span class="line"><span class="keyword">var</span> response = xhr.<span class="property">responseText</span>;</span><br></pre></td></tr></table></figure>
+
+<p>拓展：open()方法的参数</p>
+<p>1.method(必须）请求方法，’get’,’post’,’put’,’delete’等</p>
+<p>2.url(必须)：请求地址</p>
+<p>3.async（可选）是否为异步，true为异步，false为同步</p>
+<h4 id="12-浏览器渲染流程"><a href="#12-浏览器渲染流程" class="headerlink" title="12.浏览器渲染流程"></a>12.浏览器渲染流程</h4><p>1.<strong>浏览器进程</strong>只有一个<strong>负责界面显示、用户交互、子进程关闭，除此之外，还会提供存储等功</strong> </p>
+<p><strong>能。</strong></p>
+<p>2.渲染进程（其主要作用是页面渲染、脚本执行、事件处理等）：</p>
+<p>包含的线程</p>
+<p>（1）GUI渲染线程 </p>
+<p>主要负责渲染浏览器界面，解析HTML、CSS、构建DOM树和RenderObject树，布局和绘制等。当界面 </p>
+<p>需要重绘或重排时，该线程就会执行。 </p>
+<p>（2）JS引擎线程 </p>
+<p>主要负责解析并执行JS代码。 </p>
+<p>（注意：JS引擎线程和GUI渲染线程是互斥关系，当JS引擎线程执行时GUI线程会被挂起，GUI更新会被 </p>
+<p>保存在一个队列中等到JS引擎空闲时立即执行，所以JS执行的时间过程，就会造成页面的渲染不连贯， </p>
+<p>导致页面渲染加载阻塞） </p>
+<p>（3）事件触发线程 </p>
+<p>用来控制事件循环，当js引擎执行代码时，会将对应的任务（例如Ajax任务、鼠标点击……）添加到事件 </p>
+<p>线程中，当事件被触发时，事件线程会把事件添加到待处理事件队列的队尾，等待js引擎的处理。 </p>
+<p>（4）定时触发器线程 </p>
+<p>setInterval和setTimeout所在的线程，浏览器定时计数器并不是由JavaScript引擎计数的，通过单独的 </p>
+<p>线程来计时并触发定时。（W3C在HTML标准中规定，setTimeout中低于4ms的时间间隔算4ms） </p>
+<p>（5）异步http请求线程 </p>
+<p>用于处理请求XMLHttpRequest，在连接后是通过浏览器新开一个线程请求。</p>
+<ol>
+<li>GPU进程</li>
+</ol>
+<p>GPU进程只有一个。GPU使用初衷是为了实现3D CSS的效果，知识随着网页、Chrome的UI界面都选择 </p>
+<p>采用GPU来绘制，使得GPU成为浏览器的普遍需求，最后，Chrome在其多进程架构上也引入了GPU进 </p>
+<p>程。 </p>
+<ol>
+<li>网络进程</li>
+</ol>
+<p>只有一个，主要负责页面的网络资源加载。 </p>
+<ol>
+<li>插件进程</li>
+</ol>
+<p>每个类型的插件对应着一个进程，主要负责插件的运行。因为插件易崩溃，所以需要通过插件进程来隔 </p>
+<p>离，以保证插件进程崩溃不会对浏览器和页面造成影响。</p>
+<p><img src="https://s1.vika.cn/space/2024/03/03/cb19c91d8c304d3d8592f062dc4c95a6"></p>
+<p><strong>浏览器的渲染流程，主要包含构建DOM树、样式计算、布局阶段、分层、图层绘制、分</strong> </p>
+<p><strong>块、栅格化操作、合成和显示。</strong></p>
+<p><img src="https://s1.vika.cn/space/2024/03/03/e8cfa9a57aa14a9ab110110c9f91b098"></p>
+<h4 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h4><p>缓存是指代理服务器或客户端本地磁盘内保存的资源副本，利用缓存可减少对源服务器的访问， </p>
+<p>节省通信流量和通信时间。 </p>
+<p>浏览器缓存指的就是浏览器对之前请求过的文件进行缓存，以便在下一次访问时重复使用，从而 </p>
+<p>节省带宽、提升访问速度、降低服务器压力。 </p>
+<p>今天所说的HTTP缓存机制就是利用HTTP响应头将所请求的资源在浏览器中进行缓存，缓存方式 </p>
+<p>主要分为两种：<strong>强缓存、协商缓存</strong>。</p>
+<h5 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存:"></a><strong>强缓存:</strong></h5><p>Expires、Cache-Contro两个响应头表示强缓存。</p>
+<p>Expires是HTTP1.0中的字段，是一个绝对时间，即服务器时间。浏览器检查当前时间，如果还没 </p>
+<p>到失效时间就直接使用缓存文件。</p>
+<p><strong>由于Expires存在服务器时间越客户端时间不一致的问题，所以HTTP1.1中新增了Cache-Control</strong> </p>
+<p><strong>字段</strong>（注意：如果同时存在cache-control和expires时，浏览器总是<strong>优先使用cache-control</strong>）， </p>
+<p>通过设置max-age来不存一个相对时间，表示其在该相对时间内容有效。对于Cache-Control字段 </p>
+<p>的常见取值如下所示： </p>
+<ol>
+<li><p>private：默认值，表示客户端可以缓存，中间代理、CDN等不能缓存此响应； </p>
+</li>
+<li><p>public：表示客户端和代理服务器都可缓存； </p>
+</li>
+<li><p>max-age&#x3D;xxx：缓存的内容将在xxx秒后失效； </p>
+</li>
+<li><p>no-cache：需要使用协商缓存来验证缓存数据； </p>
+</li>
+<li><p>no-store：所有内容都不会缓存（包括协商缓存），每次都向服务器请求最新资源；</p>
+</li>
+</ol>
+<p>欢迎关注公众号“前端点线面”，定期为你推荐原创深度好文 </p>
+<p>执鸢者6. must-revalidate：在缓存过期前可以使用，过期后必须向服务器验证。 </p>
+<h5 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h5><p>Last-Modify、Etag</p>
+<p>last-modified是HTTP1.0中的字段，是第一次请求资源时，服务器返回的字段，表示最后一次更 </p>
+<p>新的时间。下一次浏览器请求资源时就发送if-modified-since字段。服务器用本地Last-modified </p>
+<p>时间与if-modified-since时间比较，如果不一致则认为缓存已过期并返回新资源给浏览器；如果 </p>
+<p>时间一致则发送304状态码，让浏览器继续使用缓存。</p>
+<p>Etag是HTTP1.1中新增的字段，是资源的实体标识（哈希字符串），当资源内容更新时，Etag会 </p>
+<p>改变。服务器会判断Etag是否发生变化，如果变化则返回新资源，否则返回304。 </p>
+<p>为什么增加Etag字段？ </p>
+<p>在Last-Modify字段存在情况下又新增Etag字段的理由主要有以下几点： </p>
+<ol>
+<li>一些文件进行更改后，其内容并没有发生变化，仅仅影响了修改时间，这时候不应该认为缓存过期</li>
+</ol>
+<p>了； </p>
+<ol start="2">
+<li>某些文件修改太多频繁（秒级别以内），但是If-Modify-Since能检查的精度是秒级别，此时会导致</li>
+</ol>
+<p>问题； </p>
+<ol start="3">
+<li>某些服务器并不能精确得到文件的最后修改时间。</li>
+</ol>
+<h4 id="三次握手四次挥手"><a href="#三次握手四次挥手" class="headerlink" title="三次握手四次挥手"></a>三次握手四次挥手</h4><p>建立连接： 客发送syn  服收到syn服发送ack+syn  客收到ack+syn客发送ack请求</p>
+<p>结束连接：客发送fin  服收到fin发送ack  服发送fin  客收到fin发送ack</p>
+<h4 id="在浏览器地址栏输入地址，并按下回车键后，发生了哪些事情？"><a href="#在浏览器地址栏输入地址，并按下回车键后，发生了哪些事情？" class="headerlink" title="在浏览器地址栏输入地址，并按下回车键后，发生了哪些事情？"></a>在浏览器地址栏输入地址，并按下回车键后，发生了哪些事情？</h4><p>1.浏览器检查地址是否合法</p>
+<p>2.浏览器检查是否有缓存可用</p>
+<p>3.无缓存或者缓存过期，进行dns解析，解析出ip地址</p>
+<p>4.浏览器向服务器发送tcp连接</p>
+<p>5.服务器收到请求，生成响应</p>
+<p>6.返回响应给浏览器</p>
+<p>7.浏览器解析响应</p>
+<p>8.浏览器解析html文档，开始渲染页面。</p>
+<p>9.页面加载完成，触发load事件，执行js代码</p>
+<h4 id="addEventListerner的参数"><a href="#addEventListerner的参数" class="headerlink" title="addEventListerner的参数"></a>addEventListerner的参数</h4><p><code>addEventListener</code> 函数是用于向一个指定的元素添加事件句柄的方法。它有一个可选的第三个参数，该参数是一个布尔值，用于指定事件是在捕获阶段（capture phase）还是冒泡阶段（bubble phase）触发。</p>
+<ul>
+<li><p>当第三个参数为 <code>true</code> 时，事件将在捕获阶段触发。捕获阶段是从最外层的祖先元素向下传播到目标元素的过程。换句话说，事件会从根元素一直传递到目标元素，然后才进入冒泡阶段。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">addEventListener</span>(eventType, eventHandler, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当第三个参数为 <code>false</code> 或省略时，事件将在冒泡阶段触发。冒泡阶段是从目标元素开始，事件逐级冒泡到最外层的祖先元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="title function_">addEventListener</span>(eventType, eventHandler, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">element.<span class="title function_">addEventListener</span>(eventType, eventHandler);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>在实际应用中，大多数情况下我们使用冒泡阶段（<code>false</code> 或省略第三个参数），因为这样更符合直观的思维方式，即事件从具体的元素开始冒泡到更一般的元素。而捕获阶段通常用于需要在事件到达目标元素之前截获和处理事件的特殊情况。</p>
+<h4 id="AST是什么"><a href="#AST是什么" class="headerlink" title="AST是什么"></a>AST是什么</h4><p>AST，全称为<strong>抽象语法树</strong>（Abstract Syntax Tree），是<strong>源代码的抽象语法结构的树状表示</strong>。在编程语言处理中，AST 是<strong>一种树形的数据结构，用于表示程序的语法结构</strong>。</p>
+<p>具体来说，AST 是编译器在解析源代码时构建的一种数据结构，用于表示代码的语法和结构。它将源代码中的每个语法构造映射到树中的一个节点，节点之间通过父子关系和兄弟关系相互连接。AST 的每个节点代表源代码中的一个语法元素，比如变量、函数调用、循环、条件语句等。</p>
+<p>AST 对于编译器、解释器和静态代码分析工具等工具来说非常重要。通过分析和操作 AST，可以实现诸如<strong>语法检查、代码优化、代码转换等功能</strong>。在前端领域，例如在 JavaScript 的编译和解析过程中，AST 往往被用于实现诸如 Babel、ESLint 等工具，用于处理和转换 JavaScript 代码。</p>
+<p>一个简单的例子，考虑以下的 JavaScript 代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = <span class="title function_">add</span>(<span class="number">3</span>, <span class="number">7</span>);</span><br></pre></td></tr></table></figure>
+
+<p>对应的 AST 大致结构可能如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Program</span><br><span class="line">  └─ FunctionDeclaration (add)</span><br><span class="line">      ├─ Identifier (a)</span><br><span class="line">      ├─ Identifier (b)</span><br><span class="line">      └─ BlockStatement</span><br><span class="line">          └─ ReturnStatement</span><br><span class="line">              └─ BinaryExpression (+)</span><br><span class="line">                  ├─ Identifier (a)</span><br><span class="line">                  └─ Identifier (b)</span><br><span class="line">  └─ VariableDeclaration</span><br><span class="line">      ├─ VariableDeclarator</span><br><span class="line">          ├─ Identifier (result)</span><br><span class="line">          └─ CallExpression</span><br><span class="line">              ├─ Identifier (add)</span><br><span class="line">              ├─ Literal (3)</span><br><span class="line">              └─ Literal (7)</span><br></pre></td></tr></table></figure>
+
+<p>这个 AST 树用树状结构清晰地表示了代码的语法结构。每个节点都代表了源代码中的一个语法元素，而连接节点的边则表示语法结构中的关系。</p>
+<h4 id="VUE中的修饰符"><a href="#VUE中的修饰符" class="headerlink" title="VUE中的修饰符"></a>VUE中的修饰符</h4><p>表单修饰符：</p>
+<p>.lazy  </p>
+<p>.trim 自动过滤用户输入的首空格字符，而中间的空格不会过滤</p>
+<p>.number自动将用户的输入值转为数值类型，但如果这个值无法被parseFloat解析，则会返回原来的值</p>
+<p>事件修饰符：</p>
+<p>.stop 阻止了事件冒泡，相当于调用了event.stopPropagation方法</p>
+<p>.prevent阻止了事件的默认行为，相当于调用了event.preventDefault方法</p>
+<p>.once绑定了事件以后只能触发一次，第二次就不会触发 </p>
+<p>鼠标按钮修饰符：</p>
+<p>.left 左键点击</p>
+<p>.right 右键点击</p>
+<p>.middle 中键点击</p>
+<p>键盘修饰符：</p>
+<p>.enter .tab</p>
+<p>v-bind修饰符：</p>
+<p>.sync 能对props进行一个双向绑定 </p>
+<ul>
+<li>使用sync的时候，子组件传递的事件名格式必须为update:value，其中value必须与子组件中props中声明的名称完全一致</li>
+<li>注意带有 .sync 修饰符的 v-bind 不能和表达式一起使用</li>
+<li>将 v-bind.sync 用在一个字面量的对象上，例如 v-bind.sync&#x3D;”{ title: doc.title }”，是无法正常工作的</li>
+</ul>
+<h4 id="computed和watch有什么不同"><a href="#computed和watch有什么不同" class="headerlink" title="computed和watch有什么不同"></a><strong>computed和watch有什么不同</strong></h4><p>computed:</p>
+<ol>
+<li>支持缓存，只有依赖数据发生改变，才重新计算。</li>
+<li>不支持异步。</li>
+<li>computed的计算结果默认走缓存。</li>
+</ol>
+<p>watch:</p>
+<ol>
+<li>不支持缓存，数据变化，就发生相应的操作</li>
+<li>支持异步监听</li>
+<li>接受两个参数，一个是新值，一个是旧值</li>
+</ol>
+<p>watchEffect:</p>
+<ol>
+<li>不支持缓存，函数会立即执行。</li>
+<li>支持异步。</li>
+<li>不需要显式的观察数据。</li>
+</ol>
+<p>在页面加载时，<code>computed</code>属性<strong>会被立即计算一次</strong>，而<code>watch</code>选项中的函数<strong>不会在页面加载时立即执行</strong>，它们只有在被观察的数据发生变化时才会执行。因此，<code>computed</code>在页面加载时是必定会执行的，而<code>watch</code>的执行取决于其所观察的数据是否在加载时发生了变化。</p>
+<p>watchEffect适合处理副作用，数据变化时执行操作，而不关系数据变化的信息。当不需要具体变化信息，只需要执行操作的场景。</p>
+<p>watch需要监视特定的数据变化，并且提供了新旧值的访问。</p>
+<h5 id="watch-vs-watchEffect"><a href="#watch-vs-watchEffect" class="headerlink" title="**watch vs. watchEffect**"></a><code>**watch</code> vs. <code>watchEffect</code><a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/essentials/watchers.html#watch-vs-watcheffect"></a>**</h5><p><code>watch</code> 和 <code>watchEffect</code> 都能响应式地执行有副作用的回调。它们之间的主要区别是<strong>追踪响应式依赖的方式</strong>：</p>
+<ul>
+<li><code>watch</code> 只追踪明确侦听的数据源。它不会追踪任何在回调中访问到的东西。另外，仅在数据源确实改变时才会触发回调。<code>watch</code> 会避免在发生副作用时追踪依赖，因此，我们能更加精确地控制回调函数的触发时机。</li>
+<li><code>watchEffect</code>，则会在副作用发生期间追踪依赖。它会在同步执行过程中，自动追踪所有能访问到的响应式属性。这更方便，而且代码往往更简洁，但有时其响应性依赖关系会不那么明确</li>
+</ul>
+<h4 id="slot"><a href="#slot" class="headerlink" title="slot:"></a>slot:</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">//具名插槽</span><br><span class="line">子组件：</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">父组件：</span><br><span class="line">  &lt;Layout&gt;</span><br><span class="line">    &lt;template #header&gt;</span><br><span class="line">      &lt;h1&gt;HEader&lt;/h1&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">    &lt;template #default&gt;Main&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">    &lt;template v-slot:footer&gt;</span><br><span class="line">      &lt;h1&gt;Footer&lt;/h1&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">  &lt;/Layout&gt;</span><br><span class="line">  注：v-slot:footer 可以简写成#footer 而默认的插槽为#default</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  子组件向父组件传递数据</span><br><span class="line">  &lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;slot :msg=&quot;&#x27;slotMsg&#x27;&quot; :count=&quot;1&quot; name=&quot;data&quot;&gt;			&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">父组件</span><br><span class="line">  &lt;SlotData v-slot=&quot;slotProps&quot; #data&gt;</span><br><span class="line">    &#123;&#123; slotProps.msg &#125;&#125;</span><br><span class="line">    &#123;&#123; slotProps.count &#125;&#125;</span><br><span class="line">  &lt;/SlotData&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="vue3父子组件中使用v-model"><a href="#vue3父子组件中使用v-model" class="headerlink" title="vue3父子组件中使用v-model"></a>vue3父子组件中使用v-model</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">//子组件</span><br><span class="line">&lt;!-- &lt;script setup&gt;</span><br><span class="line">const model = defineModel();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt; &lt;input v-model=&quot;model&quot; /&gt;&lt;/template&gt; --&gt; 这段代码是vue3.4之后支持的 有了新的defineModel()</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">const props = defineProps([&#x27;modelValue&#x27;])</span><br><span class="line">const emit = defineEmits([&#x27;update:modelValue&#x27;])</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input</span><br><span class="line">    :value=&quot;props.modelValue&quot;</span><br><span class="line">    @input=&quot;emit(&#x27;update:modelValue&#x27;, $event.target.value)&quot;</span><br><span class="line">  /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">父组件：</span><br><span class="line">const modelValue = ref(&#x27;hello child2&#x27;)</span><br><span class="line">  &lt;Child2 v-model=&quot;modelValue&quot;&gt;</span><br><span class="line">  &lt;/Child2&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="nextTick-的使用"><a href="#nextTick-的使用" class="headerlink" title="nextTick()的使用"></a>nextTick()的使用</h4><p>等待下一次 DOM 更新刷新的工具方法。</p>
+<ul>
+<li><strong>在数据变化后执行的某个操作，而这个操作需要使用随数据变化而变化的DOM结构的时候</strong>，这个操作就需要方法在<code>nextTick()</code>的回调函数中。</li>
+<li>在vue生命周期中，如果在<strong>created()钩子进行DOM操作</strong>，也一定要放在<code>nextTick()</code>的回调函数中。</li>
+</ul>
+<h4 id="delete和Vue-delete删除数组的区别"><a href="#delete和Vue-delete删除数组的区别" class="headerlink" title="delete和Vue.delete删除数组的区别"></a>delete和Vue.delete删除数组的区别</h4><ul>
+<li><code>delete</code> 只是被删除的元素变成了 <code>empty/undefined</code> 其他的元素的键值还是不变。</li>
+<li><code>Vue.delete</code> 直接删除了数组 改变了数组的键值。</li>
+</ul>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><p><strong>beforeCreate</strong>：在组<strong>件实例初始化完成之后立即调用</strong>。在实例初始化完成并且 props 被解析后立即调用。接着 props 会被定义成响应式属性，<code>data()</code> 和 <code>computed</code> 等选项也开始进行处理</p>
+<p><strong>created:<strong>在组件实例处理完所有与状态相关的选项后调用。当这个钩子被调用时，以下内容已经设置完成：响应式数据、计算属性、方法和侦听器。然而，此时</strong>挂载阶段还未开始</strong>，因此 <code>$el</code> 属性仍不可用。</p>
+<p><strong>beforeMount:<strong>在组件被挂载之前调用。当这个钩子被调用时，组件已经</strong>完成了其响应式状态的设置</strong>，但<strong>还没有创建 DOM 节点</strong>。它即将首次执行 DOM 渲染过程。<strong>这个钩子在服务端渲染时不会被调用。</strong></p>
+<p>**mounted:**在组件被挂载之后调用。组件在以下情况下被视为已挂载：</p>
+<ul>
+<li>所有同步子组件都已经被挂载。(不包含异步组件或 <code>&lt;Suspense&gt;</code> 树内的组件)</li>
+<li>其自身的 DOM 树已经创建完成并插入了父容器中。注意仅当根容器在文档中时，才可以保证组件 DOM 树也在文档中。</li>
+</ul>
+<p>这个钩子通常用于执行需要访问组件所渲染的 DOM 树相关的副作用，或是在<a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/scaling-up/ssr.html">服务端渲染应用</a>中用于确保 DOM 相关代码仅在客户端被调用。这个钩子在服务端渲染时不会被调用</p>
+<p><strong>beforeUpdate</strong>:在组件即将因为一个响应式状态变更而<strong>更新其 DOM 树之前调用</strong>。这个钩子可以用来在 Vue 更新 DOM 之前访问 DOM 状态。在这个钩子中更改状态也是安全的。<strong>这个钩子在服务端渲染时不会被调用。</strong></p>
+<p><strong>updated:<strong>在组件因为一个响应式状态变更而</strong>更新其 DOM 树之后调用</strong>.父组件的更新钩子将在其子组件的更新钩子之后调用。</p>
+<p>这个钩子会在组件的任意 DOM 更新后被调用，这些更新可能是由不同的状态变更导致的。如果你需要在某个特定的状态更改后访问更新后的 DOM，请使用 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/api/general.html#nexttick">nextTick()</a> 作为替代。<strong>这个钩子在服务端渲染时不会被调用。</strong></p>
+<p><strong>beroreUnmount</strong>:在一个组件实例被卸载之前调用.当这个钩子被调用时，组件实例依然还保有全部的功能。</p>
+<p>**unmounted:**在一个组件实例被卸载之后调用。一个组件在以下情况下被视为已卸载：</p>
+<ul>
+<li>其所有子组件都已经被卸载。</li>
+<li>所有相关的响应式作用 (渲染作用以及 <code>setup()</code> 时创建的计算属性和侦听器) 都已经停止。</li>
+</ul>
+<p>可以在这个钩子中手动清理一些副作用，例如计时器、DOM 事件监听器或者与服务器的连接。 <strong>这个钩子在服务端渲染时不会被调用。</strong></p>
+<h4 id="Vue-Router-的懒加载如何实现"><a href="#Vue-Router-的懒加载如何实现" class="headerlink" title="Vue-Router 的懒加载如何实现"></a>Vue-Router 的懒加载如何实现</h4><ol>
+<li><p>使用箭头函数+important动态加载</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">List</span> = (<span class="params"></span>) =&gt; <span class="keyword">import</span>(<span class="string">&#x27;@/components/list.vue&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&#x27;/list&#x27;</span>, <span class="attr">component</span>: <span class="title class_">List</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>箭头函数+require动态加载</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">Router</span>(&#123;</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">   &#123;</span><br><span class="line">     <span class="attr">path</span>: <span class="string">&#x27;/list&#x27;</span>,</span><br><span class="line">     <span class="attr">component</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;@/components/list&#x27;</span>], resolve)</span><br><span class="line">   &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用webpack的require.ensure技术，也可以实现按需加载。 这种情况下，多个路由指定相同的chunkName，会合并打包成一个js文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// r就是resolve</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">List</span> = r =&gt; <span class="built_in">require</span>.<span class="title function_">ensure</span>([], <span class="function">() =&gt;</span> <span class="title function_">r</span>(<span class="built_in">require</span>(<span class="string">&#x27;@/components/list&#x27;</span>)), <span class="string">&#x27;list&#x27;</span>);</span><br><span class="line"><span class="comment">// 路由也是正常的写法  这种是官方推荐的写的 按模块划分懒加载 </span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">Router</span>(&#123;</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/list&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">List</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;list&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"> ]</span><br><span class="line">&#125;))</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="路由钩子"><a href="#路由钩子" class="headerlink" title="路由钩子"></a>路由钩子</h4><ol>
+<li><p>全局路由钩子</p>
+<ul>
+<li>beforeEach  全局前置守卫，进入路由前 </li>
+<li>beforeResolve 全局解析守卫</li>
+<li>afterEach 全局后置钩子 进入路由之后</li>
+</ul>
+</li>
+<li><p>单个路由独享钩子</p>
+<p>beforeEnter 三个参数：to from next</p>
+</li>
+<li><p>组件内钩子（都有 to from next 参数)</p>
+<p>beforeRouterEnter:进入组件前</p>
+<p>beforeRouteUpdate:当前地址改变且组件被复用时触发</p>
+<p>beforeRouteLeave:离开组件时触发</p>
+</li>
+</ol>
+<h4 id="refs-传递信息有什么弊端"><a href="#refs-传递信息有什么弊端" class="headerlink" title="$refs 传递信息有什么弊端"></a>$refs 传递信息有什么弊端</h4><p><code>$refs</code> 主要用于在父组件中直接访问子组件或 DOM 元素，但它并不是用来传递信息的首选方法。使用 <code>$refs</code> 传递信息可能会带来一些弊端和潜在的问题：</p>
+<ol>
+<li><p><strong>耦合性增加：</strong> 使用 <code>$refs</code> 会增加组件之间的耦合性，使得父组件依赖于子组件的内部结构。这样的耦合性会导致组件难以复用和维护。</p>
+</li>
+<li><p><strong>非响应性：</strong> <code>$refs</code> 返<strong>回的是直接访问的子组件或 DOM 元素，而不是响应式的数据</strong>。如果子组件内部的状态发生变化，父组件并不会自动感知到这些变化，需要手动监听或通过其他方式处理。</p>
+</li>
+<li><p><strong>组件生命周期：</strong> 当父组件访问 <code>$refs</code> 获取子组件时，需要确保子组件已经被创建和挂载，否则可能会导致 <code>$refs</code> 返回 <code>undefined</code>。这在某些场景下可能需要额外的注意。</p>
+</li>
+<li><p><strong>可读性降低：</strong> 使用 <code>$refs</code> 直接传递信息可能使代码的可读性降低，因为它没有像 Props 和 Events 那样清晰地表达组件之间的通信关系。</p>
+</li>
+</ol>
+<p>在大多数情况下，最好避免使用 <code>$refs</code> 来传递信息，而是通过 Props 和 Events 来实现父子组件之间的通信，这样可以更好地维护和组织你的代码。</p>
+<h4 id="计算属性中可以写if逻辑吗"><a href="#计算属性中可以写if逻辑吗" class="headerlink" title="计算属性中可以写if逻辑吗"></a>计算属性中可以写if逻辑吗</h4><p>在 Vue 的计算属性中，是不能直接使用 <code>if</code> 语句的，因为<strong>计算属性应当是一个表达式</strong>，<strong>而不是一个完整的语句块。计算属性是依赖于响应式数据的，而 <code>if</code> 语句并不是一个返回值的表达式。</strong></p>
+<h4 id="异步组件是什么，有什么作用"><a href="#异步组件是什么，有什么作用" class="headerlink" title="异步组件是什么，有什么作用"></a>异步组件是什么，有什么作用</h4><p>异步组件是在 Vue 中用于按需加载（懒加载）的一种机制。通过异步组件，你可以延迟加载一个组件直到它实际需要被渲染到页面上。这有助于提高应用的性能，特别是在应用中存在大量组件时。</p>
+<p>在 Vue 中，异步组件可以通过两种方式来定义：使用工厂函数或使用动态 <code>import</code> 语法。</p>
+<p>使用工厂函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">AsyncComponent</span> = (<span class="params"></span>) =&gt; (&#123;</span><br><span class="line">  <span class="comment">// 异步加载组件</span></span><br><span class="line">  <span class="attr">component</span>: <span class="keyword">import</span>(<span class="string">&#x27;./AsyncComponent.vue&#x27;</span>),</span><br><span class="line">  <span class="comment">// 加载中的组件</span></span><br><span class="line">  <span class="attr">loading</span>: <span class="title class_">LoadingComponent</span>,</span><br><span class="line">  <span class="comment">// 加载失败时的组件</span></span><br><span class="line">  <span class="attr">error</span>: <span class="title class_">ErrorComponent</span>,</span><br><span class="line">  <span class="comment">// 延迟多长时间显示加载中的组件（默认是 200 毫秒）</span></span><br><span class="line">  <span class="attr">delay</span>: <span class="number">200</span>,</span><br><span class="line">  <span class="comment">// 在延迟显示前最大等待时间（默认是 Infinity）</span></span><br><span class="line">  <span class="attr">timeout</span>: <span class="number">3000</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用动态 <code>import</code> 语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">AsyncComponent</span> = (<span class="params"></span>) =&gt; <span class="keyword">import</span>(<span class="string">&#x27;./AsyncComponent.vue&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>异步组件的主要作用有：</p>
+<ol>
+<li><p><strong>按需加载：</strong> 异步组件可以实现按需加载，当组件在实际需要渲染到页面上时才进行加载，而不是在应用启动时一次性加载所有组件。</p>
+</li>
+<li><p><strong>提高性能：</strong> 通过按需加载，减少了应用初始加载时需要下载和解析的 JavaScript 文件的大小，从而提高了应用的性能。</p>
+</li>
+<li><p><strong>分割代码：</strong> 异步组件使得你可以将应用代码分割成更小的块，这样用户只需加载当前视图所需的代码，而不是整个应用的代码。</p>
+</li>
+<li><p><strong>优化用户体验：</strong> 通过按需加载，可以减少应用初始化时的等待时间，提升用户体验。</p>
+</li>
+</ol>
+<p>总的来说，异步组件是一种优化前端性能和用户体验的手段，特别适用于大型单页应用或需要动态加载的应用场景。</p>
+<h4 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h4><p>动态组件是指在 Vue 中根据当前组件的状态或条件，动态地切换渲染不同的组件。Vue 提供了 <code>&lt;component&gt;</code> 元素来实现动态组件的渲染。</p>
+<h3 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h3><p>使用 <code>is</code> 特性来绑定一个变量，根据这个变量的值来决定要渲染的组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- 根据 currentComponent 变量的值动态渲染组件 --&gt;</span><br><span class="line">    &lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ComponentA from &#x27;./ComponentA.vue&#x27;;</span><br><span class="line">import ComponentB from &#x27;./ComponentB.vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      currentComponent: &#x27;ComponentA&#x27;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    switchComponent() &#123;</span><br><span class="line">      // 根据条件切换要渲染的组件</span><br><span class="line">      this.currentComponent = (this.currentComponent === &#x27;ComponentA&#x27;) ? &#x27;ComponentB&#x27; : &#x27;ComponentA&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在上述例子中，<code>&lt;component :is=&quot;currentComponent&quot;&gt;&lt;/component&gt;</code> 根据 <code>currentComponent</code> 的值动态渲染了 <code>ComponentA</code> 或 <code>ComponentB</code>。</p>
+<h3 id="使用-v-if-和-v-else："><a href="#使用-v-if-和-v-else：" class="headerlink" title="使用 v-if 和 v-else："></a>使用 <code>v-if</code> 和 <code>v-else</code>：</h3><p>除了使用 <code>&lt;component&gt;</code> 元素，你还可以使用 <code>v-if</code> 和 <code>v-else</code> 指令来动态切换组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- 使用 v-if 和 v-else 切换组件 --&gt;</span><br><span class="line">    &lt;component-a v-if=&quot;isComponentA&quot;&gt;&lt;/component-a&gt;</span><br><span class="line">    &lt;component-b v-else&gt;&lt;/component-b&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 切换按钮 --&gt;</span><br><span class="line">    &lt;button @click=&quot;switchComponent&quot;&gt;Switch Component&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ComponentA from &#x27;./ComponentA.vue&#x27;;</span><br><span class="line">import ComponentB from &#x27;./ComponentB.vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      isComponentA: true</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    switchComponent() &#123;</span><br><span class="line">      // 切换组件的显示状态</span><br><span class="line">      this.isComponentA = !this.isComponentA;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，通过 <code>v-if</code> 和 <code>v-else</code> 实现了根据 <code>isComponentA</code> 的值切换渲染的组件。</p>
+<p>动态组件的使用可以根据实际需求灵活切换和渲染组件，使得页面的结构和行为更具有动态性。</p>
+<h4 id="spa提高首屏加载速度"><a href="#spa提高首屏加载速度" class="headerlink" title="spa提高首屏加载速度"></a>spa提高首屏加载速度</h4><p>Single Page Application（SPA）首屏加载是指在用户访问应用时，应用仅加载并渲染所需的初始页面内容，而不会重新加载整个页面。SPA 通过异步加载所需的资源，以提高应用的性能和用户体验。以下是一些关键的优化策略，可用于 SPA 的首屏加载：</p>
+<ol>
+<li><p><strong>懒加载（Lazy Loading）：</strong> 将应用分割成小块，只在需要时加载。这可以通过使用动态 <code>import()</code> 语法或 Vue Router 中的懒加载路由来实现。这样可以减小首次加载时需要下载的 JavaScript 文件的大小。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用动态 import() 实现懒加载</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">SomeComponent</span> = (<span class="params"></span>) =&gt; <span class="keyword">import</span>(<span class="string">&#x27;./SomeComponent.vue&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>代码分割（Code Splitting）：</strong> 将代码拆分成多个模块，使得应用在首次加载时只下载必需的代码。Webpack 等打包工具提供了代码分割的功能，可通过配置实现。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack 配置中的代码分割</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="attr">optimization</span>: &#123;</span><br><span class="line">    <span class="attr">splitChunks</span>: &#123;</span><br><span class="line">      <span class="attr">chunks</span>: <span class="string">&#x27;all&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>资源压缩和混淆：</strong> 使用压缩和混淆工具（例如 UglifyJS）来减小 JavaScript 文件的大小，从而加快首屏加载速度。</p>
+</li>
+<li><p><strong>CDN 加速：</strong> 将静态资源（如 CSS、JavaScript 文件等）部署到内容分发网络（CDN）上，以加速资源的加载速度。CDN 通常会将资源缓存到全球多个节点，用户可以从离他们更近的节点获取资源。</p>
+</li>
+<li><p><strong>服务端渲染（SSR）：</strong> 在一些情况下，考虑使用服务端渲染（例如 Nuxt.js 或 Next.js）来生成首屏内容。SSR 可以在服务器端生成 HTML，减少浏览器端的工作量，提高首屏加载速度。</p>
+</li>
+<li><p><strong>预加载和预渲染：</strong> 使用 <code>&lt;link rel=&quot;preload&quot;&gt;</code> 标签来预加载关键资源，或者使用服务端渲染预渲染关键页面内容，以进一步提高加载速度。</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 预加载资源 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/path/to/resource.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>以上是一些通用的 SPA 首屏加载优化策略，具体的实施方式可能会根据应用的框架和需求有所不同。综合使用这些策略，可以显著提高 SPA 的首屏加载性能。</p>
+<h4 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h4><p>自定义指令主要是为了<strong>重用涉及普通元素的底层 DOM 访问的逻辑</strong>。</p>
+<p>最简单的例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//单组件内使用</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">	const vFocus = &#123;</span><br><span class="line">        mounted:el=&gt;el.focus</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;input v-focus /&gt;</span><br><span class="line">&lt;template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//全局指令</span><br><span class="line">const app = createApp(App);</span><br><span class="line">app.directive(&quot;focus&quot;, &#123;</span><br><span class="line">  mounted(el) &#123;</span><br><span class="line">    el.focus();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line">app.mount(&quot;#app&quot;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//指令钩子</span></span><br><span class="line"><span class="keyword">const</span> myDirective = &#123;</span><br><span class="line">  <span class="comment">// 在绑定元素的 attribute 前</span></span><br><span class="line">  <span class="comment">// 或事件监听器应用前调用</span></span><br><span class="line">  <span class="title function_">created</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;</span><br><span class="line">    <span class="comment">// 下面会介绍各个参数的细节</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 在元素被插入到 DOM 前调用</span></span><br><span class="line">  <span class="title function_">beforeMount</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 在绑定元素的父组件</span></span><br><span class="line">  <span class="comment">// 及他自己的所有子节点都挂载完成后调用</span></span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件更新前调用</span></span><br><span class="line">  <span class="title function_">beforeUpdate</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 在绑定元素的父组件</span></span><br><span class="line">  <span class="comment">// 及他自己的所有子节点都更新后调用</span></span><br><span class="line">  <span class="title function_">updated</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件卸载前调用</span></span><br><span class="line">  <span class="title function_">beforeUnmount</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件卸载后调用</span></span><br><span class="line">  <span class="title function_">unmounted</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//钩子参数</span><br><span class="line">el：指令绑定到的元素。这可以用于直接操作 DOM。</span><br><span class="line">binding：一个对象，包含以下属性。</span><br><span class="line">value：传递给指令的值。例如在 v-my-directive=&quot;1 + 1&quot; 中，值是 2。</span><br><span class="line">oldValue：之前的值，仅在 beforeUpdate 和 updated 中可用。无论值是否更改，它都可用。</span><br><span class="line">arg：传递给指令的参数 (如果有的话)。例如在 v-my-directive:foo 中，参数是 &quot;foo&quot;。</span><br><span class="line">modifiers：一个包含修饰符的对象 (如果有的话)。例如在 v-my-directive.foo.bar 中，修饰符对象是 &#123; foo: true, bar: true &#125;。</span><br><span class="line">instance：使用该指令的组件实例。</span><br><span class="line">dir：指令的定义对象。</span><br><span class="line">vnode：代表绑定元素的底层 VNode。</span><br><span class="line">prevNode：代表之前的渲染中指令所绑定元素的 VNode。仅在 beforeUpdate 和 updated 钩子中可用。</span><br></pre></td></tr></table></figure>
+
+<h4 id="react-router-里的-标签和-标签有什么-区别"><a href="#react-router-里的-标签和-标签有什么-区别" class="headerlink" title="react-router 里的  标签和  标签有什么 区别"></a>react-router 里的 <Link> 标签和 <a> 标签有什么 区别</h4><p>a标签会刷新页面</p>
+<h4 id="vue3中动态引入图片（https-www-jianshu-com-p-d71ad062653e）"><a href="#vue3中动态引入图片（https-www-jianshu-com-p-d71ad062653e）" class="headerlink" title="vue3中动态引入图片（https://www.jianshu.com/p/d71ad062653e）"></a>vue3中动态引入图片（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d71ad062653e%EF%BC%89">https://www.jianshu.com/p/d71ad062653e）</a></h4><p>1.import动态引入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;img :src=&quot;dynamicImage&quot; alt=&quot;Dynamic Image&quot;&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  setup() &#123;</span><br><span class="line">    import(&#x27;@/assets/your-image.jpg&#x27;).then((module) =&gt; &#123;</span><br><span class="line">      // 将动态引入的图片赋值给响应式数据</span><br><span class="line">      this.dynamicImage = module.default;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      dynamicImage: null,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2.new URL() + import.meta.url</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取assets静态资源</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getAssetsFile</span> = (<span class="params">url: string</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">`../assets/images/<span class="subst">$&#123;url&#125;</span>`</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>).<span class="property">href</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  getAssetsFile,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="webpack中loader-和-plugin的"><a href="#webpack中loader-和-plugin的" class="headerlink" title="webpack中loader 和 plugin的"></a>webpack中loader 和 plugin的</h4><p>Webpack 中的 Loader 和 Plugin 是两个不同的概念，它们分别用于处理不同的任务。下面简要介绍它们的区别：</p>
+<p><strong>1. Loader（加载器）：</strong></p>
+<p>Loader 用于处理资源文件（例如 JavaScript、CSS、图片等）的加载和转换。它是一个转换器，将源文件转换为模块。Loader在 <code>module.rules</code> 规则中进行配置，用于匹配文件并执行相应的转换。</p>
+<p>例如，使用 Babel Loader 将 ES6+ 的 JavaScript 代码转换成浏览器兼容的 JavaScript 代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        <span class="attr">use</span>: &#123;</span><br><span class="line">          <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span>,</span><br><span class="line">          <span class="attr">options</span>: &#123;</span><br><span class="line">            <span class="attr">presets</span>: [<span class="string">&#x27;@babel/preset-env&#x27;</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>Plugin（插件）：</strong></li>
+</ol>
+<p><strong>Plugin 用于执行一些任务，它可以访问整个构建过程，执行广泛的任务，如代码压缩、资源优化、定义环境变量等。Plugin 在配置文件中通过 <code>plugins</code> 字段进行配置。</strong></p>
+<p>例如，使用 <code>HtmlWebpackPlugin</code> 插件自动生成 HTML 文件并引入打包后的资源：</p>
+<figure class="highlight plaintext"><figcaption><span>HtmlWebpackPlugin </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line"></span><br><span class="line">  // ...</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line"></span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line"></span><br><span class="line">      template: &#x27;src/index.html&#x27;,</span><br><span class="line"></span><br><span class="line">      minify: &#123;</span><br><span class="line"></span><br><span class="line">        collapseWhitespace: true,</span><br><span class="line"></span><br><span class="line">        removeComments: true,</span><br><span class="line"></span><br><span class="line">        removeRedundantAttributes: true,</span><br><span class="line"></span><br><span class="line">        removeScriptTypeAttributes: true,</span><br><span class="line"></span><br><span class="line">        removeStyleLinkTypeAttributes: true,</span><br><span class="line"></span><br><span class="line">        useShortDoctype: true</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">总结：</span><br><span class="line">- Loader 用于对模块的**源代码进行转换**，通常是用于处理不同类型的文件。</span><br><span class="line">- Plugin 用于执行一些**构建过程中的任务**，例如文件输出、资源优化、环境变量注入等。</span><br><span class="line"></span><br><span class="line">在 Webpack 的构建过程中，Loader 和 Plugin 一起协同工作，为开发者提供了强大的扩展和自定义能力。</span><br><span class="line"></span><br><span class="line">#### 数组方法</span><br><span class="line"></span><br><span class="line">在JavaScript中，数组方法可以分为两类：会修改原数组的方法（即有副作用的方法）和不会修改原数组的方法（即无副作用的方法）。</span><br><span class="line"></span><br><span class="line">会修改数组的方法（有副作用）包括但不限于：</span><br><span class="line">- `push()`：向数组的末尾添加一个或多个元素，并返回新的长度。</span><br><span class="line">- `pop()`：删除数组的最后一个元素，并返回被删除的元素。</span><br><span class="line">- `shift()`：删除数组的第一个元素，并返回被删除的元素，同时将数组长度减一。</span><br><span class="line">- `unshift()`：向数组的开头添加一个或多个元素，并返回新的长度。</span><br><span class="line">- `splice()`：通过删除、替换或添加新元素来修改数组。</span><br><span class="line">- `sort()`：对数组进行排序，并直接修改原数组。如果需要保留原数组的顺序，应该使用`slice`结合排序。</span><br><span class="line">- `reverse()`：颠倒数组中元素的顺序，并直接修改原数组。</span><br><span class="line"></span><br><span class="line">不会修改数组的方法（无副作用）包括但不限于：</span><br><span class="line">- `concat()`：合并两个或多个数组，并返回一个新数组。</span><br><span class="line">- `slice()`：返回一个新数组，包含从开始到结束（不包括结束）选择的数组的一部分。</span><br><span class="line">- `filter()`：创建一个新数组，其包含通过所提供函数实现的测试的所有元素。</span><br><span class="line">- `map()`：创建一个新数组，其结果是该数组中的每个元素都调用一次提供的回调函数后的返回值。</span><br><span class="line">- `find()`：返回数组中满足提供的测试函数的第一个元素的值。否则返回undefined。</span><br><span class="line">- `findIndex()`：返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。</span><br><span class="line">- `every()`：检测数组中的所有元素是否都通过了指定的测试函数。</span><br><span class="line">- `some()`：检测数组中的某些元素是否通过了指定的测试函数。</span><br><span class="line">- `forEach()`：对数组的每个元素执行一次提供的回调函数。</span><br><span class="line"></span><br><span class="line">请注意，`slice()`方法虽然不会直接修改原数组，但它会返回原数组的一个浅拷贝。如果原数组中的元素是对象或数组，那么这些对象或数组的引用会被复制到新数组中，但对象或数组本身不会被复制。</span><br><span class="line"></span><br><span class="line">### React</span><br><span class="line"></span><br><span class="line">#### react 生命周期</span><br><span class="line"></span><br><span class="line">挂载阶段</span><br><span class="line"></span><br><span class="line">1. **constructor()**：组件被创建时调用，用于初始化状态和绑定事件处理函数。</span><br><span class="line">2. **getDerivedStateFromProps()**：在组件挂载之前和每次更新时都会被调用，用于在render之前更新状态。它接收`props`和`state`两个参数。</span><br><span class="line">3. **render()**：负责返回React元素，描述组件的结构。</span><br><span class="line">4. **componentDidMount()**：在组件挂载后立即调用，通常用于发起网络请求或设置订阅。</span><br><span class="line"></span><br><span class="line">更新阶段</span><br><span class="line"></span><br><span class="line">1. **getDerivedStateFromProps()**：与挂载阶段相同，也可以在更新阶段使用。</span><br><span class="line">2. **shouldComponentUpdate()**：决定是否重新渲染组件。默认返回`true`，但你可以在这里优化性能。</span><br><span class="line">3. **render()**：重新渲染组件。</span><br><span class="line">4. **getSnapshotBeforeUpdate()**：在更新之前获取DOM的快照，常用于获取更新前的一些信息，返回值将传递给`componentDidUpdate`。</span><br><span class="line">5. **componentDidUpdate()**：组件更新后调用，通常用于执行与更新相关的操作，例如处理更新前的DOM快照。</span><br><span class="line"></span><br><span class="line">卸载阶段</span><br><span class="line"></span><br><span class="line">1. **componentWillUnmount()**：在组件即将卸载时调用，用于清理一些资源，例如取消网络请求或清除订阅。</span><br><span class="line"></span><br><span class="line">**hooks：**</span><br><span class="line"></span><br><span class="line">**useEffect**：用于处理副作用（如数据获取、订阅管理等），类似于类组件的 `componentDidMount`、`componentDidUpdate` 和 `componentWillUnmount`。</span><br><span class="line"></span><br><span class="line">```jsx</span><br><span class="line">import React, &#123; useState, useEffect &#125; from &#x27;react&#x27;;</span><br><span class="line"></span><br><span class="line">const FunctionalComponent = () =&gt; &#123;</span><br><span class="line">  // 使用useState创建状态</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  // 使用useEffect模拟componentDidMount和componentDidUpdate</span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    // 在组件挂载后和每次count发生变化后调用</span><br><span class="line">    console.log(&#x27;Component is mounted or count has changed.&#x27;);</span><br><span class="line"></span><br><span class="line">    // 返回一个清理函数，类似componentWillUnmount</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">      console.log(&#x27;Component will unmount.&#x27;);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;, [count]);</span><br><span class="line"></span><br><span class="line">  const handleIncrement = () =&gt; &#123;</span><br><span class="line">    setCount(count + 1);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;Count: &#123;count&#125;&lt;/p&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleIncrement&#125;&gt;Increment&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default FunctionalComponent;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="React组件的state和props有什么区别？"><a href="#React组件的state和props有什么区别？" class="headerlink" title="React组件的state和props有什么区别？"></a>React组件的state和props有什么区别？</h4><p><strong>（1）props</strong></p>
+<p><strong>props是一个从外部传进组件的参数</strong>，主要作为就是从父组件向子组件传递数据，它具有<strong>可读性</strong>和<strong>不变性</strong>，只能通过外部组件主动传入新的props来重新渲染子组件，否则子组件的props以及展现形式不会改变。</p>
+<p><strong>（2）state</strong></p>
+<p>state的主要作用是<strong>用于组件保存、控制以及修改自己的状态</strong>，它只能在constructor中初始化，它算是组件的私有属性，不可通过外部访问和修改，只能通过组件内部的this.setState来修改，修改state属性会导致组件的重新渲染。</p>
+<p><strong>（3）区别</strong></p>
+<ul>
+<li>props 是传递给组件的（类似于函数的形参），而state 是在组件内被组件自己管理的（类似于在一个函数内声明的变量）。</li>
+<li>props 是不可修改的，所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。</li>
+<li>state 是在组件中创建的，一般在 constructor中初始化 state。state 是多变的、可以修改，每次setState都异步更新的。</li>
+</ul>
+<h4 id="React中setState的第二个参数作用是什么？"><a href="#React中setState的第二个参数作用是什么？" class="headerlink" title="React中setState的第二个参数作用是什么？"></a>React中setState的第二个参数作用是什么？</h4><p>在React中，<code>setState</code> 函数的第二个参数是一个<strong>可选的回调函数</strong>，它会在 <code>setState</code> 完<strong>成且组件重新渲染后被调用。</strong>这个回调函数允许你在状态更新完成后执行一些操作，通常用于确保在状态更新生效后进行一些后续逻辑。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">setState</span>(updater, [callback])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>updater</code>: 一个函数或对象，用于计算新的状态值。</li>
+<li><code>callback</code>（可选）: 一个回调函数，在状态更新完成后被调用。</li>
+</ul>
+<p>请注意，由于 <code>setState</code> 是异步的，直接在 <code>setCount</code> 后访问 <code>count</code> 可能会得到旧的值。使用回调函数可以解决这个问题，确保在更新后获得最新的状态值。	</p>
+<h4 id="React的事件机制"><a href="#React的事件机制" class="headerlink" title="React的事件机制"></a>React的事件机制</h4><p>事件并没有绑定在对应的真实 DOM 上，而是通过<strong>事件代理</strong>的方式，将所有的事件都统一绑定在了 <code>document</code> 上。这样的方式不仅减少了内存消耗，还能在组件挂载销毁时统一订阅和移除事件。</p>
+<h4 id="React的事件和普通的HTML事件有什么不同？"><a href="#React的事件和普通的HTML事件有什么不同？" class="headerlink" title="React的事件和普通的HTML事件有什么不同？"></a>React的事件和普通的HTML事件有什么不同？</h4><p>区别：</p>
+<ul>
+<li>对于事件名称命名方式，原生事件为全小写，react 事件采用小驼峰；</li>
+<li>对于事件函数处理语法，原生事件为字符串，react 事件为函数；</li>
+<li>react 事件不能采用 return false 的方式来阻止浏览器的默认行为，而必须要地明确地调用<code>preventDefault()</code>来阻止默认行为。</li>
+</ul>
+<p>合成事件是 react 模拟原生 DOM 事件所有能力的一个事件对象，其优点如下：</p>
+<ul>
+<li>兼容所有浏览器，更好的跨平台；</li>
+<li>将事件统一存放在一个数组，避免频繁的新增与删除（垃圾回收）。</li>
+<li>方便 react 统一管理和事务机制。</li>
+</ul>
+<p>事件的执行顺序为原生事件先执行，合成事件后执行，合成事件会冒泡绑定到 document 上，所以尽量避免原生事件与合成事件混用，如果原生事件阻止冒泡，可能会导致合成事件不执行，因为需要冒泡到document 上合成事件才会执行。</p>
+<h4 id="无状态组件"><a href="#无状态组件" class="headerlink" title="无状态组件"></a>无状态组件</h4><p>无状态组件（Stateless Component），又被称为函数组件，是指在 React 中没有内部状态（state）的组件。这种组件通常是纯粹的、无副作用的，主要负责接收属性（props）并返回一个 React 元素。</p>
+<p>在 React 中，有两种定义组件的方式：类组件和函数组件。无状态组件就是函数组件的一种特殊形式。以下是一个简单的无状态组件的示例：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">MyComponent</span> = (<span class="params">props</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello, &#123;props.name&#125;!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">MyComponent</span>;</span><br></pre></td></tr></table></figure>
+
+<p>无状态组件具有以下特点：</p>
+<ol>
+<li><p><strong>没有内部状态：</strong> 无状态组件不使用 <code>this.state</code> 来存储状态信息，因此没有组件级的状态。</p>
+</li>
+<li><p><strong>没有生命周期方法：</strong> 无状态组件没有生命周期方法，如 <code>componentDidMount</code>、<code>componentDidUpdate</code> 等。这使得它们在某些场景下更轻量。</p>
+</li>
+<li><p><strong>纯粹函数：</strong> 无状态组件通常是纯粹的函数，只依赖于输入的属性（props）来渲染界面，没有副作用。</p>
+</li>
+</ol>
+<p>使用无状态组件的主要优点是简洁性和易读性。由于没有内部状态和生命周期方法，代码更加简洁，适合用于只依赖于输入参数的简单 UI 展示。然而，如果需要管理组件的状态或需要使用生命周期方法，可能需要考虑使用类组件。随着 React Hooks 的引入，函数组件也可以拥有状态和生命周期等功能，从而更加强大和灵活。</p>
+<h4 id="高阶组件"><a href="#高阶组件" class="headerlink" title="高阶组件"></a>高阶组件</h4><p>高阶组件（Higher-Order Component，HOC）是 React 中一种用于组件复用的高级技术。<strong>它是一个函数，接受一个组件并返回一个新的组件</strong>。高阶组件可以用于在组件之间共享状态逻辑、抽象通用行为，或者包装现有组件以添加额外的功能。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">MyComponents</span> = (<span class="params">&#123; str &#125;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>My Components<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;str&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">WrappComponents</span> = (<span class="params">Component</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">props</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">Component</span> <span class="attr">str</span>=<span class="string">&#123;str&#125;</span> &#123;<span class="attr">...props</span>&#125; /&gt;</span></span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="title class_">WrappedComponent</span> = <span class="title class_">WrappComponents</span>(<span class="title class_">MyComponents</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="受控组件和非受控组件"><a href="#受控组件和非受控组件" class="headerlink" title="受控组件和非受控组件"></a>受控组件和非受控组件</h4><p>受控：</p>
+<ol>
+<li><strong>状态由 React 管理：</strong> 受控组件的值（如 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code>、<code>&lt;select&gt;</code> 等表单元素的值）由 React 的状态（state）管理。</li>
+<li><strong>使用 value 属性：</strong> 受控组件使用 <code>value</code> 属性绑定到 React 的状态，从而将表单元素的值与 React 状态保持同步。</li>
+<li><strong>通过 onChange 更新状态：</strong> 通过设置 <code>onChange</code> 事件处理函数来捕获用户输入，然后更新 React 的状态。</li>
+</ol>
+<p>非受控组件：</p>
+<ol>
+<li><strong>状态由 DOM 管理：</strong> 非受控组件的值由 DOM 元素本身管理，而不是由 React 状态管理。</li>
+<li><strong>不使用 value 属性：</strong> 非受控组件不使用 <code>value</code> 属性，而是允许 DOM 元素自行管理其值。</li>
+<li><strong>通过 ref 获取值：</strong> 可以使用 <code>ref</code> 来获取或修改非受控组件的值。</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; useState, useRef &#125; = <span class="built_in">require</span>(<span class="string">&quot;react&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//受控组件</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Input</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&quot;text&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">value</span>=<span class="string">&#123;value&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onInput</span>=<span class="string">&#123;(e)</span> =&gt;</span> setValue(e.target.value)&#125;</span></span><br><span class="line"><span class="language-xml">      &gt;<span class="tag">&lt;/<span class="name">input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//非受控组件</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Input2</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> inputRef = <span class="title function_">useRef</span>(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">getValue</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(inputRef.<span class="property">current</span>.<span class="property">value</span>,<span class="string">&#x27;=====&#x27;</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;inputRef&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> getValue()&#125;&gt;getValue<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="为什么-useState-要使用数组而不是对象"><a href="#为什么-useState-要使用数组而不是对象" class="headerlink" title="为什么 useState 要使用数组而不是对象"></a>为什么 useState 要使用数组而不是对象</h4><p><strong>useState 返回的是 array 而不是 object 的原因就是为了降低使用的复杂度</strong>，返回数组的话可以直接根据顺序解构，而返回对象的话要想使用多次就需要定义别名了。</p>
+<h4 id="为什么必须在顶层调用hook"><a href="#为什么必须在顶层调用hook" class="headerlink" title="为什么必须在顶层调用hook"></a>为什么必须在顶层调用hook</h4><p>React Hooks 必须在组件的顶层调用，这是因为 <strong>React 依赖于 Hooks 的调用顺序来正确地保存和更新状态</strong>。React使用一种基于数组的数据结构来存储组件状态（state），并通过 Hooks 的调用顺序来确保每个 Hook 的状态与数组中的相应位置对应。</p>
+<p>当你在组件的函数体中调用一个 Hook 时，React 会检查 Hook 的调用顺序是否和上一次渲染时相同。这是因为 React 会按顺序依次执行每个 Hook，然后根据 Hook 的顺序来正确地保存和更新状态。如果 Hook 的调用顺序发生变化，React 将无法准确地知道哪个状态对应于哪个 Hook。</p>
+<p>以下是为什么必须在顶层调用 Hook 的一些原因：</p>
+<ol>
+<li><p><strong>Hook 的调用顺序与数组索引一一对应：</strong> 每个 <strong>Hook 在内部都与一个索引关联</strong>，React 依赖于这种一一对应的关系来正确管理状态。如果在组件的嵌套结构中调用 Hook，React 就无法准确地确定状态的对应关系。</p>
+</li>
+<li><p><strong>状态的独立性：</strong> 每个 Hook 在内部都有自己的状态，这使得组件状态更加独立。如果允许在嵌套结构中调用 Hook，可能导致状态的混乱和不确定性。</p>
+</li>
+<li><p><strong>可读性和维护性：</strong> 顶层调用 Hook 使得组件的逻辑更加清晰，易于理解和维护。每个 Hook 可以在组件顶层看到，避免了在函数体内部查找和理解 Hook 的调用位置。</p>
+</li>
+</ol>
+<p>下面是一个例子，演示了在循环中调用 Hook 可能引发的问题：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">InvalidComponent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> [count, setCount] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 不允许在循环中调用 Hook</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码中，由于在循环中调用了 <code>useState</code> Hook，React 无法确定每个 Hook 实例对应的状态，从而可能导致状态混乱。因此，React 强制规定必须在组件的顶层调用 Hook，以确保状态的正确性和一一对应的关系。</p>
+<h4 id="为什么不能在循环中调用"><a href="#为什么不能在循环中调用" class="headerlink" title="为什么不能在循环中调用"></a>为什么不能在循环中调用</h4><p>React Hooks 不允许在循环、条件语句或嵌套函数中调用的主要原因是<strong>确保每次渲染时 Hook 的调用顺序是确定性的、稳定的。</strong>React 依赖于 Hook 的调用顺序来正确地管理组件的状态，因此在组件渲染期间必须保持一致性。</p>
+<p>以下是一些导致不能在循环中调用 Hook 的具体原因：</p>
+<ol>
+<li><p><strong>索引的不确定性：</strong> 在循环中调用 Hook 可能会<strong>导致索引的不确定性</strong>。如果 Hook 在循环的每次迭代中被调用，React 就无法保证每个 Hook 的状态与数组中的相应位置一一对应。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">InvalidComponent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> hooks = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    hooks[i] = <span class="title function_">useState</span>(i); <span class="comment">// 不允许在循环中调用 Hook</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上述例子中，每个 <code>useState</code> 的调用都带有循环变量 <code>i</code>，但由于 JavaScript 中闭包的特性，它们都捕获了相同的 <code>i</code>，导致 Hook 的状态混乱。</p>
+</li>
+<li><p><strong>难以理解的调用顺序：</strong> 在循环中调用 Hook 还会导致难以理解的调用顺序。在 React 中，Hook 的调用顺序必须在每次渲染时保持一致，以确保正确的状态管理和更新。在循环中使用 Hook 可能使组件的行为变得难以预测和理解。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">InvalidComponent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> hooks = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (condition) &#123;</span><br><span class="line">      hooks[i] = <span class="title function_">useState</span>(i); <span class="comment">// 不允许在循环中调用 Hook</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述例子中，<code>useState</code> 的调用条件依赖于变量 <code>condition</code>，导致每次渲染时 Hook 的调用顺序可能会有所不同。</p>
+</li>
+</ol>
+<p>总的来说，React 的设计目标是保持组件的可预测性和一致性，因此禁止在循环中调用 Hook，以确保 Hook 的调用顺序是稳定的，不会引发状态混乱和难以理解的问题。</p>
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><h4 id="CSS中可继承与不可继承属性有哪些"><a href="#CSS中可继承与不可继承属性有哪些" class="headerlink" title="CSS中可继承与不可继承属性有哪些"></a>CSS中可继承与不可继承属性有哪些</h4><p><strong>可继承的：</strong></p>
+<p>CSS 中的属性可以分为可继承和不可继承两类。可继承属性是指在父元素上设置的样式可以被子元素继承，而不可继承属性则不会被子元素继承。以下是一些常见的可继承和不可继承属性：</p>
+<h3 id="可继承属性："><a href="#可继承属性：" class="headerlink" title="可继承属性："></a>可继承属性：</h3><ol>
+<li><p><strong>字体相关：</strong></p>
+<ul>
+<li><code>font</code></li>
+<li><code>font-family</code></li>
+<li><code>font-size</code></li>
+<li><code>font-style</code></li>
+<li><code>font-weight</code></li>
+</ul>
+</li>
+<li><p><strong>文本相关：</strong></p>
+<ul>
+<li><code>line-height</code></li>
+<li><code>letter-spacing</code></li>
+<li><code>text-align</code></li>
+<li><code>text-indent</code></li>
+<li><code>text-transform</code></li>
+<li><code>color</code></li>
+</ul>
+</li>
+<li><p><strong>盒子模型相关：</strong></p>
+<ul>
+<li><code>visibility</code></li>
+</ul>
+</li>
+<li><p><strong>列表相关：</strong></p>
+<ul>
+<li><code>list-style</code></li>
+<li><code>list-style-type</code></li>
+<li><code>list-style-position</code></li>
+<li><code>list-style-image</code></li>
+</ul>
+</li>
+<li><p><strong>表格相关：</strong></p>
+<ul>
+<li><code>border-collapse</code></li>
+<li><code>border-spacing</code></li>
+<li><code>caption-side</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="不可继承属性："><a href="#不可继承属性：" class="headerlink" title="不可继承属性："></a>不可继承属性：</h3><ol>
+<li><p><strong>尺寸和距离：</strong></p>
+<ul>
+<li><code>width</code></li>
+<li><code>height</code></li>
+<li><code>margin</code></li>
+<li><code>padding</code></li>
+</ul>
+</li>
+<li><p><strong>定位和布局：</strong></p>
+<ul>
+<li><code>position</code></li>
+<li><code>top</code></li>
+<li><code>right</code></li>
+<li><code>bottom</code></li>
+<li><code>left</code></li>
+<li><code>float</code></li>
+<li><code>clear</code></li>
+<li><code>display</code></li>
+</ul>
+</li>
+<li><p><strong>背景相关：</strong></p>
+<ul>
+<li><code>background</code></li>
+<li><code>background-color</code></li>
+<li><code>background-image</code></li>
+<li><code>background-repeat</code></li>
+<li><code>background-position</code></li>
+<li><code>background-size</code></li>
+</ul>
+</li>
+<li><p><strong>边框相关：</strong></p>
+<ul>
+<li><code>border</code></li>
+<li><code>border-width</code></li>
+<li><code>border-style</code></li>
+<li><code>border-color</code></li>
+<li><code>border-radius</code></li>
+</ul>
+</li>
+<li><p><strong>颜色和透明度：</strong></p>
+<ul>
+<li><code>opacity</code></li>
+<li><code>color</code></li>
+</ul>
+</li>
+<li><p><strong>文本相关：</strong></p>
+<ul>
+<li><code>text-decoration</code></li>
+<li><code>text-shadow</code></li>
+</ul>
+</li>
+<li><p><strong>字体相关：</strong></p>
+<ul>
+<li><code>font-size-adjust</code></li>
+<li><code>font-stretch</code></li>
+<li><code>font-kerning</code></li>
+<li><code>font-variant</code></li>
+</ul>
+</li>
+<li><p><strong>其他：</strong></p>
+<ul>
+<li><code>box-shadow</code></li>
+<li><code>outline</code></li>
+<li><code>outline-width</code></li>
+<li><code>outline-style</code></li>
+<li><code>outline-color</code></li>
+<li><code>cursor</code></li>
+<li><code>resize</code></li>
+<li><code>overflow</code></li>
+<li><code>clip</code></li>
+</ul>
+</li>
+</ol>
+<p>这只是一些常见的可继承和不可继承属性的例子。在实际使用中，可继承属性通常用于设置文本和字体样式，以确保整个文档中的一致性。不可继承属性通常用于控制布局和外观的具体细节，以便更精确地定制每个元素。</p>
+<h4 id="行内元素和块级元素"><a href="#行内元素和块级元素" class="headerlink" title="行内元素和块级元素"></a>行内元素和块级元素</h4><p><strong>（1）行内元素</strong></p>
+<ul>
+<li>设置宽高无效；</li>
+<li>可以设置水平方向的margin和padding属性，不能设置垂直方向的padding和margin；</li>
+<li>不会自动换行；</li>
+</ul>
+<p><strong>（2）块级元素</strong></p>
+<ul>
+<li>可以设置宽高；</li>
+<li>设置margin和padding都有效；</li>
+<li>可以自动换行；</li>
+<li>多个块状，默认排列从上到下。</li>
+</ul>
+<p><strong>行内块元素</strong>：</p>
+<ul>
+<li>不会独占一行</li>
+<li>可以设置宽高</li>
+<li>默认宽度由内容决定</li>
+<li>可以设置内外边距 </li>
+<li>常见的<img/> <input/><label/><button>?</button></li>
+</ul>
+<h4 id="如何消除行内块元素之间的空白"><a href="#如何消除行内块元素之间的空白" class="headerlink" title="如何消除行内块元素之间的空白"></a>如何消除行内块元素之间的空白</h4><p>看不见的空白间隔通常是由于 HTML 元素之间的空白符（空格、换行、制表符等）引起的。这些空白符在 HTML 中会被解释为文本节点，从而导致元素之间存在默认的间隔。</p>
+<h3 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h3><ol>
+<li><p><strong>文本节点：</strong> 如果 HTML 中的元素之间存在空格、换行或制表符等文本字符，这些字符会被解释为文本节点，从而在渲染时创建空白间隔。</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Element 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Element 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 在上述例子中，元素之间的换行符会被解释为文本节点，导致元素之间存在空白间隔。</p>
+</li>
+<li><p><strong>Inline 元素默认的空白间隔：</strong> 一些 HTML 元素（如 <code>&lt;span&gt;</code>、<code>&lt;a&gt;</code> 等）是行内元素（Inline），它们默认对文本节点有一定的处理，导致元素之间存在一些默认的空白间隔。</p>
+</li>
+</ol>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><ol>
+<li><p><strong>移除空白字符：</strong> 最简单的解决方法是直接移除 HTML 中元素之间的空白字符。</p>
+</li>
+<li><p><strong>使用注释：</strong> 将 HTML 中的空白字符用注释替代，注释不会创建文本节点。</p>
+</li>
+<li><p><strong>CSS 解决：</strong> 使用 CSS 调整布局，可以通过设置父元素的 <code>font-size</code>、<code>line-height</code>、<code>margin</code> 等属性，或者通过设置元素的 <code>float</code>、<code>display</code> 等属性来影响空白间隔。</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 通过设置父元素的 font-size 或 line-height */</span></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 通过设置元素的 float 或 display */</span></span><br><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>需要注意的是，上述方法有些是简单粗暴的解决方式，视情况选择。更好的方式是在编写 HTML 时，注意元素之间是否存在空白字符。</p>
+<p> <strong>display:inline-block 什么时候会显示间隙？</strong></p>
+<ul>
+<li>有空格时会有间隙，可以删除空格解决；</li>
+<li><code>margin</code>正值时，可以让<code>margin</code>使用负值解决；</li>
+<li>使用<code>font-size</code>时，可通过设置<code>font-size:0</code>、<code>letter-spacing</code>、<code>word-spacing</code>解决；</li>
+</ul>
+<h4 id="如何判断元素是否到达可视区域"><a href="#如何判断元素是否到达可视区域" class="headerlink" title="如何判断元素是否到达可视区域"></a>如何判断元素是否到达可视区域</h4><p>你可以使用 JavaScript 来判断元素是否进入了可视区域。以下是一些方法：</p>
+<h3 id="1-getBoundingClientRect-方法："><a href="#1-getBoundingClientRect-方法：" class="headerlink" title="1. getBoundingClientRect 方法："></a>1. <strong>getBoundingClientRect 方法：</strong></h3><p>使用 <code>getBoundingClientRect</code> 方法可以获取元素相对于视口的位置信息。通过比较元素的位置信息和视口的大小，可以判断元素是否在可视区域内。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isElementInViewport</span>(<span class="params">element</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> rect = element.<span class="title function_">getBoundingClientRect</span>();</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    rect.<span class="property">top</span> &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">    rect.<span class="property">left</span> &gt;= <span class="number">0</span> &amp;&amp;</span><br><span class="line">    rect.<span class="property">bottom</span> &lt;= (<span class="variable language_">window</span>.<span class="property">innerHeight</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span>) &amp;&amp;</span><br><span class="line">    rect.<span class="property">right</span> &lt;= (<span class="variable language_">window</span>.<span class="property">innerWidth</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span>)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">var</span> myElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myElement&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">isElementInViewport</span>(myElement)) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Element is in the viewport!&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Element is not in the viewport.&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Intersection-Observer-API："><a href="#2-Intersection-Observer-API：" class="headerlink" title="2. Intersection Observer API："></a>2. <strong>Intersection Observer API：</strong></h3><p><code>Intersection Observer</code> 是一种现代的方法，它提供了一种异步观察目标元素与其祖先或视口交叉状态的机制。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个观察器实例</span></span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> <span class="title class_">IntersectionObserver</span>(<span class="keyword">function</span>(<span class="params">entries</span>) &#123;</span><br><span class="line">  entries.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">entry</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (entry.<span class="property">isIntersecting</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Element is in the viewport!&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Element is not in the viewport.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 观察特定元素</span></span><br><span class="line"><span class="keyword">var</span> targetElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;myElement&#x27;</span>);</span><br><span class="line">observer.<span class="title function_">observe</span>(targetElement);</span><br></pre></td></tr></table></figure>
+
+<p>使用 Intersection Observer API 更具性能，因为它是异步执行的，而不是像 <code>getBoundingClientRect</code> 那样同步计算位置。此外，它还提供了更多的配置选项，使你能够更精细地定义何时认为元素进入了可视区域。</p>
+<h4 id="css动画"><a href="#css动画" class="headerlink" title="css动画"></a>css动画</h4><p>1.transition</p>
+<p><code>transition</code> 属性允许你在元素的状态发生改变时平滑地过渡到新状态。过渡可以应用于多个属性，并且你可以指定过渡的时长、延迟和过渡函数</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">transition</span>:width <span class="number">10s</span> ease-in-out;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.element</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.animation</p>
+<p>使用 <code>@keyframes</code> 规则，定义自己的动画序列，然后将其应用于元素。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> slides&#123;</span><br><span class="line">    <span class="selector-tag">from</span>&#123;</span><br><span class="line">        <span class="attribute">transform</span>:<span class="built_in">translateX</span>(<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">to</span>&#123;</span><br><span class="line">        <span class="attribute">transform</span>:<span class="built_in">translateX</span>(<span class="number">100px</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.element</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">animation</span>: slides <span class="number">1s</span> ease-in-out infinite alternate；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.transform:</p>
+<p><code>transform</code> 属性不仅可以用于动画，还可以实现一些转换效果，如平移、旋转、缩放等。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#3498db</span>;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">0.5s</span> ease-in-out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.element</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>transform和transition的区别：</strong></p>
+<ol>
+<li><strong>作用：</strong><ul>
+<li><code>transform</code> 主要用于对元素进行转换，如平移、旋转、缩放等。</li>
+<li><code>transition</code> 主要用于定义状态改变时的平滑过渡效果。</li>
+</ul>
+</li>
+<li><strong>使用场景：</strong><ul>
+<li><code>transform</code> 可以独立应用于元素，也可以与 <code>transition</code> 和 <code>animation</code> 配合使用，实现更复杂的动画效果。</li>
+<li><code>transition</code> 主要用于状态变化时的平滑过渡，例如悬停状态、点击事件等。</li>
+</ul>
+</li>
+<li><strong>语法：</strong><ul>
+<li><code>transform</code> 的值是一系列变换函数，可以同时应用多个。</li>
+<li><code>transition</code> 的值包括过渡的属性、时长、延迟和过渡函数。</li>
+</ul>
+</li>
+</ol>
+<p>选择使用 <code>transform</code> 还是 <code>transition</code> 取决于你的具体需求。通常来说，<code>transform</code> 用于定义变换效果，而 <code>transition</code> 用于处理状态变化时的平滑过渡。在实际开发中，它们经常结合使用，以实现更复杂、更丰富的动画效果。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">killzou</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/a8829c499.html">http://example.com/post/a8829c499.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">好困啊</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/zoublong/tags/css-js-html-vue-react/">css js html vue react</a></div><div class="post_share"><div class="social-share" data-image="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/zoublong/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/zoublong/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/zoublong/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/zoublong/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/zoublong/post/a8829c498.html" title="总结2"><img class="cover" src="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d" onerror="onerror=null;src='/zoublong/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">总结2</div></div></a></div><div class="next-post pull-right"><a href="/zoublong/post/5a8d6d79.html" title="vue3自定义指令"><img class="cover" src="https://s1.vika.cn/space/2023/04/28/a7cbf93c23964888b7dcf1456df8a698" onerror="onerror=null;src='/zoublong/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">vue3自定义指令</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/zoublong/post/a8829c498.html" title="总结2"><img class="cover" src="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-12</div><div class="title">总结2</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://p1.music.126.net/bKM7itpIqu_G2cA4BwdHmw==/109951168552935844.jpg" onerror="this.onerror=null;this.src='/zoublong/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">kill zou</div><div class="author-info__description">困了不睡睡，熬成仙</div></div><div class="card-info-data site-data is-center"><a href="/zoublong/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/zoublong/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/zoublong/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/killzou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zouwenhao03" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:13588824132@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-0-1-0-2%EF%BC%81-x3D-0-3"><span class="toc-number">1.</span> <span class="toc-text">1.0.1+0.2！&#x3D;0.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-ajax%E5%9B%9B%E4%B8%AA%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">3.ajax四个步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%E6%96%B9%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">4.数组合并方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87"><span class="toc-number"></span> <span class="toc-text">5面试准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-setTimeout%E7%9A%84%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%8F%82%E6%95%B0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1.setTimeout的第三个参数是什么，有什么作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Commonjs%E5%92%8Ces6%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%A4%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">2.Commonjs和es6的模块化两者的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-call-apply-bind"><span class="toc-number">3.</span> <span class="toc-text">3.call,apply,bind</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA"><span class="toc-number">4.</span> <span class="toc-text">4.暂时性死区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">5.</span> <span class="toc-text">5.块级作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-for-in%E4%BC%9A%E9%81%8D%E5%8E%86%E5%88%B0%E5%8E%9F%E5%9E%8B%E4%B8%8A%EF%BC%8C%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">6.for in会遍历到原型上，怎么理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-js%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">7.js判断数据类型的四种方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-this%E6%8C%87%E5%90%91"><span class="toc-number">8.</span> <span class="toc-text">8.this指向</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E5%85%B3%E4%BA%8E%E5%8E%9F%E5%9E%8B"><span class="toc-number">9.</span> <span class="toc-text">9.关于原型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%B0%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E9%A9%BC%E5%B3%B0"><span class="toc-number">10.</span> <span class="toc-text">10.将字符串转驼峰</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-cookie%E5%92%8Cstroge%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">11.</span> <span class="toc-text">9.cookie和stroge的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">12.</span> <span class="toc-text">10.非简单请求的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-XMLHttpRequest%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%90%8C%E6%AD%A5%E8%AF%B7%E6%B1%82"><span class="toc-number">13.</span> <span class="toc-text">11.XMLHttpRequest如何实现同步请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B"><span class="toc-number">14.</span> <span class="toc-text">12.浏览器渲染流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%93%E5%AD%98"><span class="toc-number">15.</span> <span class="toc-text">缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%BA%E7%BC%93%E5%AD%98"><span class="toc-number">15.1.</span> <span class="toc-text">强缓存:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-number">15.2.</span> <span class="toc-text">协商缓存</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-number">16.</span> <span class="toc-text">三次握手四次挥手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E8%BE%93%E5%85%A5%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%B9%B6%E6%8C%89%E4%B8%8B%E5%9B%9E%E8%BD%A6%E9%94%AE%E5%90%8E%EF%BC%8C%E5%8F%91%E7%94%9F%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%83%85%EF%BC%9F"><span class="toc-number">17.</span> <span class="toc-text">在浏览器地址栏输入地址，并按下回车键后，发生了哪些事情？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#addEventListerner%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">18.</span> <span class="toc-text">addEventListerner的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AST%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">19.</span> <span class="toc-text">AST是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#VUE%E4%B8%AD%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">20.</span> <span class="toc-text">VUE中的修饰符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#computed%E5%92%8Cwatch%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C"><span class="toc-number">21.</span> <span class="toc-text">computed和watch有什么不同</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#watch-vs-watchEffect"><span class="toc-number">21.1.</span> <span class="toc-text">**watch vs. watchEffect**</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slot"><span class="toc-number">22.</span> <span class="toc-text">slot:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue3%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8v-model"><span class="toc-number">23.</span> <span class="toc-text">vue3父子组件中使用v-model</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nextTick-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">24.</span> <span class="toc-text">nextTick()的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#delete%E5%92%8CVue-delete%E5%88%A0%E9%99%A4%E6%95%B0%E7%BB%84%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">25.</span> <span class="toc-text">delete和Vue.delete删除数组的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">26.</span> <span class="toc-text">生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-Router-%E7%9A%84%E6%87%92%E5%8A%A0%E8%BD%BD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">27.</span> <span class="toc-text">Vue-Router 的懒加载如何实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%92%A9%E5%AD%90"><span class="toc-number">28.</span> <span class="toc-text">路由钩子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#refs-%E4%BC%A0%E9%80%92%E4%BF%A1%E6%81%AF%E6%9C%89%E4%BB%80%E4%B9%88%E5%BC%8A%E7%AB%AF"><span class="toc-number">29.</span> <span class="toc-text">$refs 传递信息有什么弊端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E4%B8%AD%E5%8F%AF%E4%BB%A5%E5%86%99if%E9%80%BB%E8%BE%91%E5%90%97"><span class="toc-number">30.</span> <span class="toc-text">计算属性中可以写if逻辑吗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="toc-number">31.</span> <span class="toc-text">异步组件是什么，有什么作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">32.</span> <span class="toc-text">动态组件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">基本用法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-v-if-%E5%92%8C-v-else%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">使用 v-if 和 v-else：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#spa%E6%8F%90%E9%AB%98%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6"><span class="toc-number">1.</span> <span class="toc-text">spa提高首屏加载速度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">自定义指令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#react-router-%E9%87%8C%E7%9A%84-%E6%A0%87%E7%AD%BE%E5%92%8C-%E6%A0%87%E7%AD%BE%E6%9C%89%E4%BB%80%E4%B9%88-%E5%8C%BA%E5%88%AB"><span class="toc-number">3.</span> <span class="toc-text">react-router 里的  标签和  标签有什么 区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue3%E4%B8%AD%E5%8A%A8%E6%80%81%E5%BC%95%E5%85%A5%E5%9B%BE%E7%89%87%EF%BC%88https-www-jianshu-com-p-d71ad062653e%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">vue3中动态引入图片（https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;d71ad062653e）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#webpack%E4%B8%ADloader-%E5%92%8C-plugin%E7%9A%84"><span class="toc-number">5.</span> <span class="toc-text">webpack中loader 和 plugin的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6%E7%9A%84state%E5%92%8Cprops%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">React组件的state和props有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#React%E4%B8%ADsetState%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">React中setState的第二个参数作用是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#React%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">8.</span> <span class="toc-text">React的事件机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#React%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%92%8C%E6%99%AE%E9%80%9A%E7%9A%84HTML%E4%BA%8B%E4%BB%B6%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">React的事件和普通的HTML事件有什么不同？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E7%8A%B6%E6%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">10.</span> <span class="toc-text">无状态组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">11.</span> <span class="toc-text">高阶组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%E5%92%8C%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6"><span class="toc-number">12.</span> <span class="toc-text">受控组件和非受控组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-useState-%E8%A6%81%E4%BD%BF%E7%94%A8%E6%95%B0%E7%BB%84%E8%80%8C%E4%B8%8D%E6%98%AF%E5%AF%B9%E8%B1%A1"><span class="toc-number">13.</span> <span class="toc-text">为什么 useState 要使用数组而不是对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E5%9C%A8%E9%A1%B6%E5%B1%82%E8%B0%83%E7%94%A8hook"><span class="toc-number">14.</span> <span class="toc-text">为什么必须在顶层调用hook</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%BE%AA%E7%8E%AF%E4%B8%AD%E8%B0%83%E7%94%A8"><span class="toc-number">15.</span> <span class="toc-text">为什么不能在循环中调用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css"><span class="toc-number"></span> <span class="toc-text">css</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS%E4%B8%AD%E5%8F%AF%E7%BB%A7%E6%89%BF%E4%B8%8E%E4%B8%8D%E5%8F%AF%E7%BB%A7%E6%89%BF%E5%B1%9E%E6%80%A7%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.</span> <span class="toc-text">CSS中可继承与不可继承属性有哪些</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E7%BB%A7%E6%89%BF%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">可继承属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E7%BB%A7%E6%89%BF%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">不可继承属性：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E5%92%8C%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-number">1.</span> <span class="toc-text">行内元素和块级元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%B6%88%E9%99%A4%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E7%A9%BA%E7%99%BD"><span class="toc-number">2.</span> <span class="toc-text">如何消除行内块元素之间的空白</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">原因：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">解决方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E5%85%83%E7%B4%A0%E6%98%AF%E5%90%A6%E5%88%B0%E8%BE%BE%E5%8F%AF%E8%A7%86%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">如何判断元素是否到达可视区域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-getBoundingClientRect-%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">1. getBoundingClientRect 方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Intersection-Observer-API%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">2. Intersection Observer API：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#css%E5%8A%A8%E7%94%BB"><span class="toc-number">1.</span> <span class="toc-text">css动画</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c46.html" title="Vue3"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="Vue3"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c46.html" title="Vue3">Vue3</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c45.html" title="css"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="css"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c45.html" title="css">css</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c46.html" title="js"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="js"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c46.html" title="js">js</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c48.html" title="react-1"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="react-1"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c48.html" title="react-1">react-1</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c498.html" title="总结2"><img src="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="总结2"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c498.html" title="总结2">总结2</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/zoublong/js/utils.js"></script><script src="/zoublong/js/main.js"></script><script src="/zoublong/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://www.940329.xyz/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://www.940329.xyz/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><div id="fps"></div><canvas id="universe"></canvas><script defer src="/zoublong/config/js/universe.js"></script><script defer src="/zoublong/config/js/fap.js"></script><script defer src="/zoublong/config/js/title.js"></script><canvas id="snow"></canvas><script defer src="/zoublong/config/js/snow.js"></script><script defer src="/zoublong/config/js/console.js"></script><script defer src="//at.alicdn.com/t/c/font_4029980_g3l7ofih7zt.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/zoublong/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/zoublong/';
+  var qweather_key = 'a0ba29844888417aa67d36cca441e9e0';
+  var gaud_map_key = '5e25390a192c00c9a9c6303ffb26d4ba';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/zoublong/config/js/runtime.js"></script><!-- hexo injector body_end end --><script src="/zoublong/zoublong/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"zoublong/","pluginJsPath":"live2dw/lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/zoublong/zoublong/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>react-1 | 好困啊</title><meta name="author" content="kill zou"><meta name="copyright" content="kill zou"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="面试  react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-1">
+<meta property="og:url" content="http://example.com/post/a8829c48.html">
+<meta property="og:site_name" content="好困啊">
+<meta property="og:description" content="面试  react">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0">
+<meta property="article:published_time" content="2024-03-12T05:31:55.690Z">
+<meta property="article:modified_time" content="2024-03-12T05:35:09.581Z">
+<meta property="article:author" content="kill zou">
+<meta property="article:tag" content="react">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0"><link rel="shortcut icon" href="/zoublong/img/ball.png"><link rel="canonical" href="http://example.com/post/a8829c48.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/zoublong/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/zoublong/',
+  algolia: undefined,
+  localSearch: {"path":"/zoublong/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: kill zou","link":"链接: ","source":"来源: 好困啊","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'react-1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-03-12 13:35:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 8 || hour >= 22
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"><link rel="stylesheet" href="/zoublong/config/css/r1.css""><link rel="stylesheet" href="/zoublong/config/css/universe.css"><link rel="stylesheet" href="/zoublong/config/css/fap.css"><link rel="stylesheet" href="/zoublong/config/css/scroll.css"><link rel="stylesheet" href="/zoublong/config/css/snow.css"><link rel="stylesheet" href="/zoublong/config/css/curr.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><console class="log" theme.preloader.source="theme.preloader.source" 555="555"></console><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="/zoublong/config/css/progress_bar.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js/pace.min.js"></script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="http://p1.music.126.net/bKM7itpIqu_G2cA4BwdHmw==/109951168552935844.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/zoublong/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/zoublong/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/zoublong/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/"><i class="fa-fw icon-mihoutao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mihoutao"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/archives/"><i class="fa-fw icon-huolongguo"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-huolongguo"></use></svg><span> 档案</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/tags/"><i class="fa-fw icon-shanzhu"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shanzhu"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/categories/"><i class="fa-fw icon-caomei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-caomei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-a-li_huaban1"></use></svg><span> 逛逛</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-baixiangguo">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/Gallery/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-niuyouguo">                   </use></svg><span> 壁纸</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/link/"><i class="fa-fw icon-yingtao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yingtao"></use></svg><span> 链接</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-juzi"></use></svg><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/comments"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-ningmeng">                   </use></svg><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/artitalk"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xigua">                   </use></svg><span> 哔哔</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0')"><nav id="nav"><span id="blog-info"><a href="/zoublong/" title="好困啊"><span class="site-name">好困啊</span></a></span><div id="menus"><div id="search-button"><a class="search faa-parent animated-hover" title="检索站内任何你想要的信息"><svg class="faa-tada icon" style="height:1.28em;width:1.28em;fill:currentColor;position:relative;top:6px" aria-hidden="true"><use xlink:href="#icon-sousuo"><span> 搜索</span></use></svg></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/"><i class="fa-fw icon-mihoutao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-mihoutao"></use></svg><span> 首页</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/archives/"><i class="fa-fw icon-huolongguo"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-huolongguo"></use></svg><span> 档案</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/tags/"><i class="fa-fw icon-shanzhu"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-shanzhu"></use></svg><span> 标签</span></a></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/categories/"><i class="fa-fw icon-caomei"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-caomei"></use></svg><span> 分类</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-a-li_huaban1"></use></svg><span> 逛逛</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-baixiangguo">                   </use></svg><span> 音乐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/Gallery/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-niuyouguo">                   </use></svg><span> 壁纸</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/zoublong/link/"><i class="fa-fw icon-yingtao"></i><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yingtao"></use></svg><span> 链接</span></a></div><div class="menus_item"><a class="site-page group faa-parent animated-hover" href="javascript:void(0);"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-juzi"></use></svg><span> 社交</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/zoublong/comments"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-ningmeng">                   </use></svg><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/zoublong/artitalk"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-xigua">                   </use></svg><span> 哔哔</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">react-1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-12T05:35:09.581Z" title="更新于 2024-03-12 13:35:09">2024-03-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/zoublong/categories/web%E5%89%8D%E7%AB%AF/">web前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="react-1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="请详细阐述一下react-diff-算法"><a href="#请详细阐述一下react-diff-算法" class="headerlink" title="请详细阐述一下react diff 算法"></a>请详细阐述一下react diff 算法</h4><p>diff 算法探讨的虚拟 DOM 树发生变化后，更新生成虚拟DOM.它通过对比新旧两个虚拟 DOM 树的变更差异，将更新补丁作用于真实 DOM，以最小成本完成视图更新。</p>
+<img src='https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/246e03a02e3e48ff941f921843bd8676~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp'>
+
+<p>1.真实的DOM映射生成虚拟DOM</p>
+<p>2.虚拟DOM发生变化形成变化后的虚拟DOM</p>
+<p>3.根据两个虚拟DOM差异计算patch(内容包含了增加、更新、移除等)</p>
+<p>4.根据patch操作真实DOM</p>
+<p>5.更新DOM</p>
+<p>diff算法三个策略:</p>
+<p>1.两棵树<strong>只对同一层次的节点进行比较</strong>，如果发现节点已经不存在了，则该节点及其子节点会被完全删除掉，不会用于进一步的比较，这就提升了比对效率。</p>
+<p>2.<strong>如果组件的 class 一致，则默认为相似的树结构，否则默认为不同的树结构。（基于组件进行对比）</strong></p>
+<p>3.<strong>同一层级的子节点，可以通过标记 key 的方式进行列表对比。</strong></p>
+<p>1.在 React 中，每当组件的状态或属性发生变化时，都会触发重新渲染。组件会生成一个新的虚拟 DOM（Virtual DOM）树，这是一个轻量级的 JavaScript 对象表示，与实际浏览器中的 DOM 结构相对应。</p>
+<p>2.采取分层比较和“同层”复用策略。它首先对整个树进行层级比较，仅在同层内查找移动、新增或删除的节点，而不是跨层级查找。</p>
+<p>3.React 利用了组件的唯一标识 (<code>key</code> 属性) 来辅助判断哪些子节点发生了改变、移动或是新增。合理的 <code>key</code> 值能够帮助 React 更准确地识别出相同类型的组件实例。</p>
+<ul>
+<li><strong>同层复用</strong>：只对同一层次的相邻节点进行比较，忽略跨层级和非相邻节点的变化。</li>
+<li><strong>先比类型再比属性</strong>：当节点类型不同时，直接替换整个节点；类型相同的情况下才进一步比较其属性及子节点。</li>
+<li><strong>基于 key 的稳定性</strong>：使用 <code>key</code> 作为索引，以确定是否可以重用现有DOM元素或进行移动操作。</li>
+</ul>
+<p>1.只做同层级对比，不跨级比较 只有删除，添加，不做移动操作</p>
+<h4 id="解释下key在react中的作用"><a href="#解释下key在react中的作用" class="headerlink" title="解释下key在react中的作用"></a>解释下key在react中的作用</h4><p><strong>Key是 React 用于追踪哪些列表中元素被修改、被添加或者被移除的辅助标识</strong>。在开发过程中，我们需要保证某个元素的 key 在其同级元素中具有唯一性。</p>
+<p>在 React Diff 算法中 React 会<strong>借助元素的 Key 值来判断该元素是新近创建的还是被移动而来的元素，从而减少不必要的元素重渲染</strong>此外，React 还需要借助 Key 值来判断元素与本地状态的关联关系。</p>
+<p>在React中使用<code>key</code>属性是为了<strong>提升列表渲染的效率和正确性</strong>，确保了UI更新过程中的性能优化以及组件状态的合理管理。在构建动态列表时，应该为列表项目提供一个稳定且唯一的标识作为<code>key</code>值，通常这个值来源于数据本身的一个不会频繁变动的字段。</p>
+<p>KEY是react用于追踪列表中元素是否被删除修改添加的辅助标识</p>
+<h5 id="React"><a href="#React" class="headerlink" title="React"></a>React</h5><h5 id="1-什么是受控组件和非受控组件？"><a href="#1-什么是受控组件和非受控组件？" class="headerlink" title="1.什么是受控组件和非受控组件？"></a>1.什么是受控组件和非受控组件？</h5><p>我们稍微了解下什么是受控组件和非受控组件：</p>
+<p>受控组件：<strong>只能通过 React 修改数据或状态的组件，就是受控组件</strong>；<br>非受控组件：与受控组件相反，如 input, textarea, select, checkbox 等组件，本身控件自己就能控制数据和状态的变更，而且 React 是不知道这些变更的；<br>那么如何将非受控组件改为受控组件呢？那就是把上面的这些纯 html 组件数据或状态的变更，交给 React 来操作：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [value, setValue] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> [checked, setChecked] = <span class="title function_">useState</span>(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">&#123;value&#125;</span> <span class="attr">onInput</span>=<span class="string">&#123;event</span> =&gt;</span> setValue(event.target.value)&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>=<span class="string">&#123;checked&#125;</span> <span class="attr">onChange</span>=<span class="string">&#123;event</span> =&gt;</span> setChecked(event.target.checked)&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，输入框和 checkbox 的变化，均是经过了 React 来操作的，在数据变更时，React 是能够知道的。</p>
+<h4 id="2高阶组件？"><a href="#2高阶组件？" class="headerlink" title="2高阶组件？"></a>2高阶组件？</h4><p>高阶组件通过包裹（wrapped）<strong>被传入的 React 组件</strong>，经过一系列处理，最终返回一个相对增强（enhanced）的 React 组件，供其他组件调用。</p>
+<p>作用：</p>
+<p>复用逻辑：高阶组件更像是一个加工 react 组件的工厂，批量对原有组件进行加工，包装处理。我们可以根据业务需求定制化专属的 HOC,这样可以<strong>解决复用逻辑</strong>。<br><strong>强化 props</strong>：这个是 HOC 最常用的用法之一，高阶组件返回的组件，可以劫持上一层传过来的 props,然后混入新的 props,来增强组件的功能。代表作 react-router 中的 withRouter。<br><strong>赋能组件</strong>：HOC 有一项独特的特性，就是可以给被 HOC 包裹的业务组件，提供一些拓展功能，比如说额外的生命周期，额外的事件，但是这种 HOC，可能需要和业务组件紧密结合。典型案例 react-keepalive-router 中的 keepaliveLifeCycle 就是通过 HOC 方式，给业务组件增加了额外的生命周期。<br><strong>控制渲染：</strong>劫持渲染是 hoc 一个特性，在 wrapComponent 包装组件中，可以对原来的组件，进行条件渲染，节流渲染，懒加载等功能，后面会详细讲解，典型代表做 react-redux 中 connect 和 dva 中 dynamic 组件懒加载。</p>
+<h4 id="3-useCallback-和-useMemo-的使用场景"><a href="#3-useCallback-和-useMemo-的使用场景" class="headerlink" title="3.useCallback 和 useMemo 的使用场景"></a>3.useCallback 和 useMemo 的使用场景</h4><p>useCallback 和 useMemo 可以用来<strong>缓存函数和变量，提高性能，减少资源浪费。</strong>但并不是所有的函数和变量都需要用这两者来实现，他也有对应的使用场景。</p>
+<p>我们知道 useCallback 可以缓存函数体，在依赖项没有变化时，前后两次渲染时，使用的函数体是一样的。它的使用场景是：</p>
+<p>函数作为其他 hook 的依赖项时（如在 useEffect()中）；<br>函数作为 React.memo()（或 shouldComponentUpdate ）中的组件的 props；<br>主要是为了避免重新生成的函数，会导致其他 hook 或组件的不必要刷新。</p>
+<p>useMemo 用来<strong>缓存函数执行的结果。</strong>如每次渲染时都要执行一段很复杂的运算，或者一个变量需要依赖另一个变量的运算结果，就都可以使用 useMemo()。</p>
+<h4 id="4-useState-的传参方式，有什么区别？"><a href="#4-useState-的传参方式，有什么区别？" class="headerlink" title="4.useState 的传参方式，有什么区别？"></a>4.useState 的传参方式，有什么区别？</h4><p>useState()的传参有两种方式：纯数据和回调函数。这两者在初始化时，除了传入方式不同，没啥区别。但在调用时，不同的调用方式和所在环境，输出的结果也是不一样的。</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const App = () =&gt; &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  const handleParamClick = () =&gt; &#123;</span><br><span class="line">    setCount(count + 1);</span><br><span class="line">    setCount(count + 1);</span><br><span class="line">    setCount(count + 1);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  const handleCbClick = () =&gt; &#123;</span><br><span class="line">    setCount(count =&gt; count + 1);</span><br><span class="line">    setCount(count =&gt; count + 1);</span><br><span class="line">    setCount(count =&gt; count + 1);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面的两种传入方式，最后得到的 count 结果是不一样的。为什么呢？因为在以数据的格式传参时，这 3 个使用的是同一个 count 变量，数值是一样的。相当于setCount(0 + 1)，调用了 3 次；但以回调函数的传参方式，React 则一般地会直接该回调函数，然后得到最新结果并存储到 React 内部，下次使用时就是最新的了。注意：这个最新值是保存在 React 内部的，外部的 count 并不会马上更新，只有在下次渲染后才会更新。</p>
+<p>还有，在定时器中，两者得到的结果也是不一样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const App = () =&gt; &#123;</span><br><span class="line">  const [count, setCount] = useState(0);</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    const timer = setInterval(() =&gt; &#123;</span><br><span class="line">      setCount(count + 1);</span><br><span class="line">    &#125;, 500);</span><br><span class="line">    return () =&gt; clearInterval(timer);</span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    const timer = setInterval(() =&gt; &#123;</span><br><span class="line">      setCount(count =&gt; count + 1);</span><br><span class="line">    &#125;, 500);</span><br><span class="line">    return () =&gt; clearInterval(timer);</span><br><span class="line">  &#125;, []);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-如何实现组件的懒加载"><a href="#5-如何实现组件的懒加载" class="headerlink" title="5.如何实现组件的懒加载"></a>5.如何实现组件的懒加载</h4><p>从 16.6.0 开始，React 提供了 lazy 和 Suspense 来实现懒加载。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; lazy, <span class="title class_">Suspense</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">OtherComponent</span> = <span class="title function_">lazy</span>(<span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;./OtherComponent&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">MyComponent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Suspense</span> <span class="attr">fallback</span>=<span class="string">&#123;</span>&lt;<span class="attr">div</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#125;&gt;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">OtherComponent</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Suspense</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>属性fallback表示在加载组件前，渲染的内容。</p>
+<h4 id="6-什么是JSX？"><a href="#6-什么是JSX？" class="headerlink" title="6. 什么是JSX？"></a>6. 什么是JSX？</h4><p><strong>JSX是一种JavaScript的语法扩展，它允许我们在JavaScript中编写类似HTML的代码</strong>。它是React的核心之一，用于描述UI组件的结构和样式。</p>
+<h4 id="7-什么是props？"><a href="#7-什么是props？" class="headerlink" title="7. 什么是props？"></a>7. 什么是props？</h4><p><strong>props是React中传递给组件的属性。它们是只读的，不能在组件内部更改</strong>。可以将props视为组件的配置。</p>
+<h4 id="8-什么是state？"><a href="#8-什么是state？" class="headerlink" title="8. 什么是state？"></a>8. 什么是state？</h4><p>state是React中用于<strong>存储组件内部状态的对象</strong>。它们是可变的，可以在组件内部更改。当state发生变化时，组件将重新渲染。</p>
+<h4 id="9-React中获取-x2F-操作DOM"><a href="#9-React中获取-x2F-操作DOM" class="headerlink" title="9.React中获取&#x2F;操作DOM"></a>9.React中获取&#x2F;操作DOM</h4><p>需要使用useRef 钩子函数，分两步：</p>
+<p>使用useRef创建ref对象，并与jsx绑定</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> infputRef = <span class="title function_">useRef</span>(<span class="literal">null</span>)</span><br><span class="line">&lt;input type = <span class="string">&#x27;text&#x27;</span> ref = &#123;inputRef&#125;&gt;</span><br><span class="line"> <span class="comment">//通过inputRef.current 拿到DOM对象</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(inputRef.<span class="property">current</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-子传父"><a href="#10-子传父" class="headerlink" title="10.子传父"></a>10.子传父</h4><p>父传子是通过prop，且数据在子组件中不能修改。</p>
+<p>父传子需要通过事件触发方式传递</p>
+<p>子组件：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Son</span> = (<span class="params">&#123;sonMsg&#125;</span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> msg = <span class="string">&#x27;msgToFather&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>sonMsg(msg)&#125;&gt;send<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>父组件：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Father</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> [sonMsg,setSonMsg] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">getSonMsg</span> = (<span class="params">msg</span>)=&gt;&#123;</span><br><span class="line">        <span class="title function_">setSonMsg</span>(msg)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">       <span class="tag">&lt;<span class="name">Son</span> <span class="attr">sonMsg</span>=<span class="string">&#123;getSonMsg&#125;</span>&gt;</span><span class="tag">&lt;/<span class="name">Son</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>兄弟之间，先子传父，再父传子。</p>
+<p>跨层级传递Context</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createContext, useContext &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. createContext方法创建一个上下文对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MsgContext</span> = <span class="title function_">createContext</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 在顶层组件 通过Provider组件提供数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 在底层组件 通过useContext钩子函数使用数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">A</span> () &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      this is A component</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">B</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">B</span> () &#123;</span><br><span class="line">  <span class="keyword">const</span> msg = <span class="title function_">useContext</span>(<span class="title class_">MsgContext</span>)</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      this is B compnent,&#123;msg&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span> () &#123;</span><br><span class="line">  <span class="keyword">const</span> msg = <span class="string">&#x27;this is app msg&#x27;</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">MsgContext.Provider</span> <span class="attr">value</span>=<span class="string">&#123;msg&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        this is App</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">A</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">MsgContext.Provider</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="11-useEffect"><a href="#11-useEffect" class="headerlink" title="11.useEffect"></a>11.useEffect</h4><p>useEffect是一个React Hook函数，<strong>用于在React组件中创建不是由事件引起而是由渲染本身引起的操作（副作用）</strong>, 比 如发送AJAX请求，更改DOM等等.</p>
+<h4 id="12-Redux"><a href="#12-Redux" class="headerlink" title="12.Redux"></a>12.Redux</h4><p>使用步骤：</p>
+<p>1.定义一个reducer函数</p>
+<p>2.使用createStore方法传入reducer函数，生成store实例对象</p>
+<p>3.使用store实例的subscribe订阅数据变化</p>
+<p>4.使用store实例的dispatch方法提交action对象触发数据变化</p>
+<p>5.使用store实例getState获取最新的状态数据更新到视图</p>
+<p>核心概念：</p>
+<p>state:一个对象，存放管理的数据状态</p>
+<p>action：一个对象，描述如何修改数据</p>
+<p>reducer:一个函数 根据action的描述生成新的state</p>
+<p><img src="https://s1.vika.cn/space/2024/02/20/8bb0319d3a0745fbb9df435fae6f20f6"></p>
+<p>简单的例子</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useReducer &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="comment">//先创建reducer.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">countReducer</span> = (<span class="params">state,action</span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">switch</span>(action.<span class="property">type</span>)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;ADD&#x27;</span>:</span><br><span class="line">          <span class="keyword">return</span> &#123;<span class="attr">count</span>:state.<span class="property">count</span>++&#125;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;DESC&#x27;</span>:</span><br><span class="line">         <span class="keyword">return</span> &#123;<span class="attr">count</span>:state.<span class="property">count</span>--&#125;</span><br><span class="line">        <span class="keyword">default</span> </span><br><span class="line">          <span class="keyword">return</span> state</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在组件中使用</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Counter</span> = (<span class="params"></span>)=&gt;&#123;</span><br><span class="line">    <span class="keyword">const</span> [state,dispatch] = <span class="title function_">useReducer</span>(countReducer,&#123;<span class="attr">count</span>:<span class="number">0</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">    	<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">         <span class="tag">&lt;<span class="name">p</span>&gt;</span>Count: &#123;state.count&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    	   <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(&#123; type: &#x27;ADD&#x27; &#125;)&#125;&gt;Increment<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">	       <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> dispatch(&#123; type: &#x27;DESC&#x27; &#125;)&#125;&gt;Decrement<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="13-React事件机制"><a href="#13-React事件机制" class="headerlink" title="13.React事件机制"></a>13.React事件机制</h4><p>React并不是将click事件绑定到了div的真实DOM上，而是在document处监听了所有的事件，当事件发生并且冒泡到document处的时候，React<strong>将事件内容封装并交由真正的处理函数运行</strong>。这样的方式不仅仅减少了内存的消耗，还能在组件挂在销毁时统一订阅和移除事件。</p>
+<p>另外冒泡到 <code>document</code> 上的事件也不是原生浏览器事件，而是 React 自己实现的合成事件（SyntheticEvent）。因此我们如果不想要事件冒泡的话，调用 <code>event.stopPropagation</code> 是无效的，而应该调用 <code>event.preventDefault</code>。</p>
+<h4 id="14-React的事件和普通的HTML事件有什么不同？"><a href="#14-React的事件和普通的HTML事件有什么不同？" class="headerlink" title="14.React的事件和普通的HTML事件有什么不同？"></a>14.React的事件和普通的HTML事件有什么不同？</h4><p>区别：</p>
+<ul>
+<li>对于事件名称命名方式，原生事件为全小写，react 事件采用小驼峰；</li>
+<li>对于事件函数处理语法，原生事件为字符串，react 事件为函数；</li>
+<li>react 事件不能采用 return false 的方式来阻止浏览器的默认行为，而必须要地明确地调用<code>preventDefault()</code>来阻止默认行为。</li>
+</ul>
+<p>合成事件是 react 模拟原生 DOM 事件所有能力的一个事件对象，其优点如下：</p>
+<ul>
+<li>兼容所有浏览器，更好的跨平台；</li>
+<li>将事件统一存放在一个数组，避免频繁的新增与删除（垃圾回收）。</li>
+<li>方便 react 统一管理和事务机制。</li>
+</ul>
+<p>事件的执行顺序为原生事件先执行，合成事件后执行，合成事件会冒泡绑定到 document 上，所以尽量避免原生事件与合成事件混用，如果原生事件阻止冒泡，可能会导致合成事件不执行，因为需要冒泡到document 上合成事件才会执行。</p>
+<ol start="15">
+<li></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">killzou</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/post/a8829c48.html">http://example.com/post/a8829c48.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">好困啊</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/zoublong/tags/react/">react</a></div><div class="post_share"><div class="social-share" data-image="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/zoublong/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/zoublong/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/zoublong/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/zoublong/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/zoublong/post/a8829c46.html" title="js"><img class="cover" src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="onerror=null;src='/zoublong/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">js</div></div></a></div><div class="next-post pull-right"><a href="/zoublong/post/a8829c498.html" title="总结2"><img class="cover" src="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d" onerror="onerror=null;src='/zoublong/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">总结2</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="http://p1.music.126.net/bKM7itpIqu_G2cA4BwdHmw==/109951168552935844.jpg" onerror="this.onerror=null;this.src='/zoublong/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">kill zou</div><div class="author-info__description">困了不睡睡，熬成仙</div></div><div class="card-info-data site-data is-center"><a href="/zoublong/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/zoublong/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/zoublong/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/killzou"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zouwenhao03" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:13588824132@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B7%E8%AF%A6%E7%BB%86%E9%98%90%E8%BF%B0%E4%B8%80%E4%B8%8Breact-diff-%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">请详细阐述一下react diff 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E4%B8%8Bkey%E5%9C%A8react%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">解释下key在react中的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#React"><span class="toc-number">2.1.</span> <span class="toc-text">React</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%E5%92%8C%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">1.什么是受控组件和非受控组件？</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">2高阶组件？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-useCallback-%E5%92%8C-useMemo-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">4.</span> <span class="toc-text">3.useCallback 和 useMemo 的使用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-useState-%E7%9A%84%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">4.useState 的传参方式，有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BB%84%E4%BB%B6%E7%9A%84%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">6.</span> <span class="toc-text">5.如何实现组件的懒加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E4%BB%80%E4%B9%88%E6%98%AFJSX%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">6. 什么是JSX？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E4%BB%80%E4%B9%88%E6%98%AFprops%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">7. 什么是props？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E4%BB%80%E4%B9%88%E6%98%AFstate%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">8. 什么是state？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-React%E4%B8%AD%E8%8E%B7%E5%8F%96-x2F-%E6%93%8D%E4%BD%9CDOM"><span class="toc-number">10.</span> <span class="toc-text">9.React中获取&#x2F;操作DOM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%AD%90%E4%BC%A0%E7%88%B6"><span class="toc-number">11.</span> <span class="toc-text">10.子传父</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-useEffect"><span class="toc-number">12.</span> <span class="toc-text">11.useEffect</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-Redux"><span class="toc-number">13.</span> <span class="toc-text">12.Redux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-React%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">14.</span> <span class="toc-text">13.React事件机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-React%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%92%8C%E6%99%AE%E9%80%9A%E7%9A%84HTML%E4%BA%8B%E4%BB%B6%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">14.React的事件和普通的HTML事件有什么不同？</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c46.html" title="Vue3"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="Vue3"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c46.html" title="Vue3">Vue3</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c45.html" title="css"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="css"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c45.html" title="css">css</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c46.html" title="js"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="js"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c46.html" title="js">js</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c48.html" title="react-1"><img src="https://s1.vika.cn/space/2023/05/01/ab2932221f164f34a79e548a73f645e0" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="react-1"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c48.html" title="react-1">react-1</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/zoublong/post/a8829c498.html" title="总结2"><img src="https://s1.vika.cn/space/2023/05/01/03b7d2d4cee9439bbd91d3234929e35d" onerror="this.onerror=null;this.src='/zoublong/img/404.jpg'" alt="总结2"/></a><div class="content"><a class="title" href="/zoublong/post/a8829c498.html" title="总结2">总结2</a><time datetime="2024-03-12T05:31:55.690Z" title="发表于 2024-03-12 13:31:55">2024-03-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/zoublong/js/utils.js"></script><script src="/zoublong/js/main.js"></script><script src="/zoublong/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://www.940329.xyz/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://www.940329.xyz/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><div id="fps"></div><canvas id="universe"></canvas><script defer src="/zoublong/config/js/universe.js"></script><script defer src="/zoublong/config/js/fap.js"></script><script defer src="/zoublong/config/js/title.js"></script><canvas id="snow"></canvas><script defer src="/zoublong/config/js/snow.js"></script><script defer src="/zoublong/config/js/console.js"></script><script defer src="//at.alicdn.com/t/c/font_4029980_g3l7ofih7zt.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/zoublong/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = '/zoublong/';
+  var qweather_key = 'a0ba29844888417aa67d36cca441e9e0';
+  var gaud_map_key = '5e25390a192c00c9a9c6303ffb26d4ba';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '113.34532,23.15624';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v6.2.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v4.3.1" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用多线部署，主线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://dashboard.4everland.org/" style="margin-inline:5px" data-title="本站采用多线部署，备用线路托管于4EVERLAND" title=""><img src="https://img.shields.io/badge/Hosted-4EVERLAND-22DDDD?style=flat&amp;logo=IPFS" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/zoublong/config/js/runtime.js"></script><!-- hexo injector body_end end --><script src="/zoublong/zoublong/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"zoublong/","pluginJsPath":"live2dw/lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/zoublong/zoublong/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body></html>
